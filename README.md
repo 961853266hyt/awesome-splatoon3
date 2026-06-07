@@ -1,4 +1,11 @@
-# Awesome Splatoon 3 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome Splatoon 3
+
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+<p align="center">
+  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Splatoon_3.svg" alt="Splatoon 3 logo">
+</p>
 
 > A curated list of useful and interesting Splatoon 3 resources.
 

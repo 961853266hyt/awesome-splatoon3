@@ -34,6 +34,7 @@
 - [sendou.ink](https://sendou.ink/) - Splatoon 竞技社区中心，提供每日赛事、赛季天梯、工具和顶尖玩家配装查询等功能。
 - [Inksight](https://hana.lol/inksight/) - Splatoon 3 回放分析工具，可查看比赛数据、反作弊标记和玩家统计。
 - [splatoon3.ink](https://splatoon3.ink/) - 提供当前赛程、轮换、鲑鱼跑数据、装备和游戏数据的网页资源。
+- [Splatoon VODs | 斯普拉遁录像库](https://splatoonvods.entre-el.top/) - 可按武器、地图等条件细粒度检索上位势对战视频的数据库。
 - [stat.ink](https://stat.ink/) - Splatoon 各系列对战结果记录与统计平台。
 
 ### 应用

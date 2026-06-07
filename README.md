@@ -1,10 +1,7 @@
-# Awesome Splatoon 3
-
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+# Awesome Splatoon 3 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 <p align="center">
-  <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Splatoon_3.svg" alt="Splatoon 3 logo">
+  <img src="https://cdn.wikimg.net/en/splatoonwiki/images/archive/f/f6/20221009031705%21S3_logo.png" alt="Splatoon 3 logo">
 </p>
 
 > A curated list of useful and interesting Splatoon 3 resources.
@@ -15,6 +12,9 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 
 - [Official Links](#official-links)
 - [Unofficial Links](#unofficial-links)
+  - [Wiki](#wiki)
+  - [Tools](#tools)
+  - [Apps](#apps)
 
 ## Official Links
 
@@ -22,9 +22,20 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 
 ## Unofficial Links
 
+### Wiki
+
 - [Inkipedia: Splatoon 3](https://splatoonwiki.org/wiki/Splatoon_3) - Community wiki reference for mechanics, weapons, gear, stages, modes, and updates.
+
+### Tools
+
 - [sendou.ink](https://sendou.ink/) - Competitive Splatoon hub featuring daily tournaments, a seasonal ladder, tools, and builds from top players.
+- [Inksight](https://hana.lol/inksight/) - Splatoon 3 replay analyzer for checking match data, anticheat flags, and player stats.
 - [splatoon3.ink](https://splatoon3.ink/) - Web resource for current schedules, rotations, Salmon Run data, gear, and game data.
+
+### Apps
+
+- [memesquid](https://diudiu-wl.github.io/download-memesquid/) - A cute desktop pet that keeps you company while watching videos.
+- [little squid pet](https://diudiu-wl.github.io/downloadsquid/) - A cute desktop pet with win/loss recognition, live chat integration, and conversation features.
 
 ## Contributing
 

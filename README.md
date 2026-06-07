@@ -1,4 +1,4 @@
-# Awesome Splatoon3 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+# Awesome Splatoon3 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)  ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) [![Star](https://img.shields.io/badge/GitHub-Star-yellow)](https://github.com/961853266hyt/awesome-splatoon3)
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 

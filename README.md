@@ -1,5 +1,7 @@
 # Awesome Splatoon3 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 <p align="center">
   <img src="https://cdn.wikimg.net/en/splatoonwiki/images/archive/f/f6/20221009031705%21S3_logo.png" alt="Splatoon 3 logo">
 </p>

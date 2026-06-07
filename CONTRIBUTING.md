@@ -1,17 +1,8 @@
 # Contributing
 
+[English](CONTRIBUTING.md) | [简体中文](CONTRIBUTING.zh-CN.md)
+
 Thanks for helping improve Awesome Splatoon 3.
-
-This list follows the spirit of the [Awesome manifesto](https://github.com/sindresorhus/awesome/blob/main/awesome.md): it should be curated, useful, and easy to scan.
-
-## Criteria
-
-A resource should be:
-
-- Useful, interesting, or high-quality for Splatoon 3 players, creators, researchers, or competitive communities.
-- Publicly accessible.
-- Clearly related to Splatoon 3.
-- Actively maintained when maintenance matters.
 
 ## Pull Request Guidelines
 
@@ -25,5 +16,5 @@ A resource should be:
 
 - Keep descriptions concise, factual, and consistent with nearby entries.
 - Avoid duplicates, dead links, referral links, and low-quality link collections.
-
+- Keep `README.md` and `README.zh-CN.md` synchronized when adding, removing, or reorganizing resources.
 

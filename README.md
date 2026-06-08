@@ -38,6 +38,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [sendou.ink](https://sendou.ink/) - Competitive Splatoon hub featuring daily tournaments, a seasonal ladder, tools, and builds from top players.
 - [Inksight](https://hana.lol/inksight/) - Splatoon 3 replay analyzer for checking match data, anticheat flags, and player stats.
 - [splatoon3.ink](https://splatoon3.ink/) - Web resource for current schedules, rotations, Salmon Run data, gear, and game data.
+- [Splatoon 3 Calendars](https://shiky.me/splatoon3) - Calendar feed generator for Splatoon 3 battle, Salmon Run, and special event schedules.
 - [Splatoon 3 Weapon Analyzer / MCP Server](https://splatoon.kotoar.com/mcp) - Tool and MCP server for Splatoon 3 weapon, build, schedule, and game data analysis.
 - [Splatoon VODs](https://splatoonvods.entre-el.top/) - Database for finding top Splatoon 3 player match videos with fine-grained filters such as weapons and maps.
 - [stat.ink](https://stat.ink/) - Battle results tracking and statistics platform for Splatoon series games.

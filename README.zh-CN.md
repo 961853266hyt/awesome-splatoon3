@@ -16,6 +16,7 @@
 - [非官方链接](#非官方链接)
   - [Wiki](#wiki)
   - [工具](#工具)
+  - [开发](#开发)
   - [素材](#素材)
   - [应用](#应用)
   - [机器人](#机器人)
@@ -42,6 +43,10 @@
 - [Splatoon 3 Weapon Analyzer / MCP Server](https://splatoon.kotoar.com/mcp) - 斯普拉遁 3 武器、配装、赛程和游戏数据分析工具及 MCP 服务器。
 - [Splatoon VODs | 斯普拉遁录像库](https://splatoonvods.entre-el.top/) - 可按武器、地图等条件细粒度检索上位势对战视频的数据库。
 - [stat.ink](https://stat.ink/) - Splatoon 各系列对战结果记录与统计平台。
+
+### 开发
+
+- [YoungSx/splatoon-ui](https://github.com/YoungSx/splatoon-ui) - 基于 shadcn/ui 和 Radix 构建的 Splatoon 风格 React 组件库。
 
 ### 素材
 

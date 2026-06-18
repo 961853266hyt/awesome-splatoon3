@@ -16,6 +16,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Unofficial Links](#unofficial-links)
   - [Wiki](#wiki)
   - [Tools](#tools)
+  - [Development](#development)
   - [Assets](#assets)
   - [Apps](#apps)
   - [Bots](#bots)
@@ -42,6 +43,10 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Splatoon 3 Weapon Analyzer / MCP Server](https://splatoon.kotoar.com/mcp) - Tool and MCP server for Splatoon 3 weapon, build, schedule, and game data analysis.
 - [Splatoon VODs](https://splatoonvods.entre-el.top/) - Database for finding top Splatoon 3 player match videos with fine-grained filters such as weapons and maps.
 - [stat.ink](https://stat.ink/) - Battle results tracking and statistics platform for Splatoon series games.
+
+### Development
+
+- [YoungSx/splatoon-ui](https://github.com/YoungSx/splatoon-ui) - Splatoon-inspired React component library built on shadcn/ui and Radix.
 
 ### Assets
 

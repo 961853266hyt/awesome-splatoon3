@@ -33,6 +33,8 @@
 - [Inkipedia: Splatoon 3](https://splatoonwiki.org/wiki/Splatoon_3) - 社区维护的百科参考，涵盖机制、武器、装备、场地、模式和更新内容。
 - [Ikanimo | 斯普拉遁中文资料站](https://splatoon.com.cn/pages/1) - 斯普拉遁 3 中文资讯、攻略和数据资料站。
 - [Splatoon3 - スプラトゥーン3 攻略＆検証 Wiki](https://wikiwiki.jp/splatoon3mix/) - 日文非官方 Wiki，提供斯普拉遁 3 攻略和机制验证资料。
+- [Splatoon Lore Ink.](https://splatoonlore.ink) - Splatoon 世界观、故事和角色资料档案，收录访谈、美术设定集和游戏内文本等翻译与整理。
+- [Sunken Scrolls](https://sunkenscrolls.ink) - Splatoon 资源归档与目录，整理攻略、站点、工具、素材和社区链接。
 
 ### 工具
 
@@ -50,6 +52,7 @@
 
 ### 素材
 
+- [decipher.ink](https://decipher.ink) - Splatoon 虚构文字字体和对照表资源，并提供字形图片生成工具。
 - [Splatoon 3 - The Models Resource](https://models.spriters-resource.com/nintendo_switch/splatoon3/) - The Models Resource 上的斯普拉遁 3 模型素材下载页。
 
 ### 应用

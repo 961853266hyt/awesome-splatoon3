@@ -33,6 +33,8 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Inkipedia: Splatoon 3](https://splatoonwiki.org/wiki/Splatoon_3) - Community wiki reference for mechanics, weapons, gear, stages, modes, and updates.
 - [Ikanimo | 斯普拉遁中文资料站](https://splatoon.com.cn/pages/1) - Chinese Splatoon 3 information, guide, and data site.
 - [Splatoon3 - スプラトゥーン3 攻略＆検証 Wiki](https://wikiwiki.jp/splatoon3mix/) - Japanese unofficial wiki for Splatoon 3 strategy guides and mechanics verification.
+- [Splatoon Lore Ink.](https://splatoonlore.ink) - Archive of Splatoon world, story, and character lore with translations from interviews, artbooks, and in-game media.
+- [Sunken Scrolls](https://sunkenscrolls.ink) - Archive and directory for Splatoon resources, including guides, sites, tools, assets, and community links.
 
 ### Tools
 
@@ -50,6 +52,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 
 ### Assets
 
+- [decipher.ink](https://decipher.ink) - Splatoon script fonts and cipher charts, with a generator for in-universe glyph images.
 - [Splatoon 3 - The Models Resource](https://models.spriters-resource.com/nintendo_switch/splatoon3/) - Downloadable Splatoon 3 model assets from The Models Resource.
 
 ### Apps

@@ -42,6 +42,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Inksight](https://hana.lol/inksight/) - Splatoon 3 replay analyzer for checking match data, anticheat flags, and player stats.
 - [splatoon3.ink](https://splatoon3.ink/) - Web resource for current schedules, rotations, Salmon Run data, gear, and game data.
 - [Splatoon 3 Calendars](https://shiky.me/splatoon3) - Calendar feed generator for Splatoon 3 battle, Salmon Run, and special event schedules.
+- [Splashtag Creater](https://splashtagmaker.com/) - Splashtag nameplate maker.
 - [Splatoon 3 Weapon Analyzer / MCP Server](https://splatoon.kotoar.com/mcp) - Tool and MCP server for Splatoon 3 weapon, build, schedule, and game data analysis.
 - [Splatoon VODs](https://splatoonvods.entre-el.top/) - Database for finding top Splatoon 3 player match videos with fine-grained filters such as weapons and maps.
 - [stat.ink](https://stat.ink/) - Battle results tracking and statistics platform for Splatoon series games.
@@ -53,11 +54,15 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 ### Assets
 
 - [decipher.ink](https://decipher.ink) - Splatoon script fonts and cipher charts, with a generator for in-universe glyph images.
+- [Deciphering the Inkling Language](https://www.youtube.com/watch?v=TKeCXNFN7eA) - Video with a description collecting Inkling-language font and writing resources.
+- [Padotagi - Splatoon2 Cursor](https://blog.naver.com/padotagi_blog/221323905612) - Splatoon 2 cursor pack.
+- [Padotagi - Splatoon3 & Side Order Cursor](https://blog.naver.com/padotagi_blog/224313544020) - Splatoon 3 and Side Order cursor pack.
 - [Splatoon 3 - The Models Resource](https://models.spriters-resource.com/nintendo_switch/splatoon3/) - Downloadable Splatoon 3 model assets from The Models Resource.
 
 ### Apps
 
 - [memesquid](https://diudiu-wl.github.io/download-memesquid/) - A cute desktop pet that keeps you company while watching videos.
+- [Mollusk Voice Changer](https://itohyakkei.booth.pm/items/8308198) - Free real-time Inkling and Octoling voice changer.
 - [little squid pet](https://diudiu-wl.github.io/downloadsquid/) - A cute desktop pet with win/loss recognition, live chat integration, and conversation features.
 
 ### Bots

@@ -16,7 +16,6 @@ Thanks for helping improve Awesome Splatoon 3.
 
 ## Pull Request Guidelines
 
-- Add one resource per pull request when possible.
 - Place the resource in the most relevant section.
 - Use this format:
 

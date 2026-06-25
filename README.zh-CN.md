@@ -18,6 +18,7 @@
   - [工具](#工具)
   - [开发](#开发)
   - [素材](#素材)
+  - [杂项](#杂项)
   - [应用](#应用)
   - [机器人](#机器人)
 
@@ -55,9 +56,16 @@
 
 - [decipher.ink](https://decipher.ink) - Splatoon 虚构文字字体和对照表资源，并提供字形图片生成工具。
 - [Deciphering the Inkling Language](https://www.youtube.com/watch?v=TKeCXNFN7eA) - 视频简介中整理了大量鱿鱼文字体和文字相关资源。
+- [Octo Expansion font recreations](https://kirbypost-generator.tumblr.com/post/181817656650/octo-expansion-font-recreations-the-haikarawalker) - 深海地铁和 Octo Expansion 相关字体复刻资源。
 - [Padotagi - Splatoon2 Cursor](https://blog.naver.com/padotagi_blog/221323905612) - Splatoon 2 鼠标指针包。
 - [Padotagi - Splatoon3 & Side Order Cursor](https://blog.naver.com/padotagi_blog/224313544020) - Splatoon 3 和秩序篇鼠标指针包。
 - [Splatoon 3 - The Models Resource](https://models.spriters-resource.com/nintendo_switch/splatoon3/) - The Models Resource 上的斯普拉遁 3 模型素材下载页。
+- [Splatoon 3 - The Spriters Resource](https://www.spriters-resource.com/nintendo_switch/splatoon3/) - The Spriters Resource 上的斯普拉遁 3 精灵图和贴图素材下载页。
+- [Splatoon 2 March 2017 Pilot Build Gamerip OST](https://archive.org/details/splatoon-2-march-2017-pilot-build-gamerip-ost_202605) - 此前未流出的 Splatoon 2 试玩版游戏原声带归档。
+
+### 杂项
+
+- [SPLATOON PROMO KID MASTERLIST](https://docs.google.com/document/d/1by1PxDAeq7mwenH9uOM9HqVUqzlVIdF2SF8ND_mFJqw/edit?tab=t.0#heading=h.1vmxmrx9e8vz) - 官方宣传用角色的资料列表，不含游戏特工和漫画角色。
 
 ### 应用
 

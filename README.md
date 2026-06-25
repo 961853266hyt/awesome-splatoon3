@@ -18,6 +18,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
   - [Tools](#tools)
   - [Development](#development)
   - [Assets](#assets)
+  - [Miscellaneous](#miscellaneous)
   - [Apps](#apps)
   - [Bots](#bots)
 
@@ -55,9 +56,16 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 
 - [decipher.ink](https://decipher.ink) - Splatoon script fonts and cipher charts, with a generator for in-universe glyph images.
 - [Deciphering the Inkling Language](https://www.youtube.com/watch?v=TKeCXNFN7eA) - Video with a description collecting Inkling-language font and writing resources.
+- [Octo Expansion font recreations](https://kirbypost-generator.tumblr.com/post/181817656650/octo-expansion-font-recreations-the-haikarawalker) - Recreated Deepsea Metro and Octo Expansion fonts.
 - [Padotagi - Splatoon2 Cursor](https://blog.naver.com/padotagi_blog/221323905612) - Splatoon 2 cursor pack.
 - [Padotagi - Splatoon3 & Side Order Cursor](https://blog.naver.com/padotagi_blog/224313544020) - Splatoon 3 and Side Order cursor pack.
 - [Splatoon 3 - The Models Resource](https://models.spriters-resource.com/nintendo_switch/splatoon3/) - Downloadable Splatoon 3 model assets from The Models Resource.
+- [Splatoon 3 - The Spriters Resource](https://www.spriters-resource.com/nintendo_switch/splatoon3/) - Downloadable Splatoon 3 sprite and texture assets from The Spriters Resource.
+- [Splatoon 2 March 2017 Pilot Build Gamerip OST](https://archive.org/details/splatoon-2-march-2017-pilot-build-gamerip-ost_202605) - Archive of previously unreleased music from a Splatoon 2 pilot build.
+
+### Miscellaneous
+
+- [SPLATOON PROMO KID MASTERLIST](https://docs.google.com/document/d/1by1PxDAeq7mwenH9uOM9HqVUqzlVIdF2SF8ND_mFJqw/edit?tab=t.0#heading=h.1vmxmrx9e8vz) - Reference list for official promotional characters outside the games and manga.
 
 ### Apps
 

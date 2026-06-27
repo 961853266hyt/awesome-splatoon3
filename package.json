@@ -14,7 +14,8 @@
     "animal-island-ui": "^1.0.16",
     "fuse.js": "^7.0.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-grab": "^0.1.37"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",

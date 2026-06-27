@@ -7,6 +7,11 @@
       name="description"
       content="A searchable directory of useful Splatoon 3 community resources."
     />
+    <script type="module">
+      if (import.meta.env.DEV) {
+        import("react-grab");
+      }
+    </script>
     <title>Awesome Splatoon3</title>
   </head>
   <body>

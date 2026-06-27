@@ -1,7 +1,4 @@
 :root {
-  color: var(--animal-text-color);
-  background: var(--animal-bg-color);
-  font-family: var(--animal-font-family);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,9 +10,13 @@
 }
 
 body {
+  --page-bg: #7dc395;
+
   margin: 0;
   min-width: 320px;
-  background: var(--animal-bg-color);
+  background: var(--page-bg);
+  color: var(--animal-text-color);
+  font-family: var(--animal-font-family);
 }
 
 a {
@@ -29,6 +30,7 @@ select {
 }
 
 .app-shell {
+  background: var(--page-bg);
   min-height: 100dvh;
 }
 

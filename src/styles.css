@@ -78,33 +78,6 @@ select {
   color: var(--animal-primary-color);
 }
 
-.hero {
-  max-width: 740px;
-  padding-top: 68px;
-}
-
-.eyebrow {
-  color: var(--animal-primary-color);
-  font-size: var(--animal-font-size-base);
-  font-weight: 800;
-  margin: 0 0 var(--animal-spacing-lg);
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  font-size: clamp(42px, 7vw, 76px);
-  line-height: 0.98;
-  margin: 0;
-}
-
-.hero p:last-child {
-  color: var(--animal-text-color-secondary);
-  font-size: var(--animal-font-size-lg);
-  line-height: 1.65;
-  margin: var(--animal-spacing-xl) 0 0;
-  max-width: 620px;
-}
-
 .content {
   margin: -24px auto 0;
   max-width: 1160px;
@@ -246,11 +219,4 @@ select {
     justify-content: center;
   }
 
-  .hero {
-    padding-top: 44px;
-  }
-
-  .hero p:last-child {
-    font-size: var(--animal-font-size-lg);
-  }
 }

@@ -10,9 +10,7 @@ const localeLabels: Record<Locale, string> = {
 
 const copy = {
   en: {
-    eyebrow: 'Unofficial community directory',
     title: 'Awesome Splatoon3',
-    subtitle: 'Search useful Splatoon 3 resources, tools, wikis, assets, apps, and bots.',
     searchLabel: 'Search resources',
     searchPlaceholder: 'Search by name, category, URL, or description',
     all: 'All',
@@ -25,9 +23,7 @@ const copy = {
     attribution: 'UI components powered by animal-island-ui.',
   },
   zhCN: {
-    eyebrow: '非官方社区资源目录',
     title: 'Awesome Splatoon3',
-    subtitle: '搜索斯普拉遁 3 的 Wiki、工具、素材、应用、机器人和社区资源。',
     searchLabel: '搜索资源',
     searchPlaceholder: '按名称、分类、URL 或描述搜索',
     all: '全部',
@@ -175,12 +171,6 @@ export function App() {
             </a>
           </div>
         </nav>
-
-        <div className="hero">
-          <p className="eyebrow">{dictionary.eyebrow}</p>
-          <h1>{dictionary.title}</h1>
-          <p>{dictionary.subtitle}</p>
-        </div>
       </header>
 
       <main className="content">

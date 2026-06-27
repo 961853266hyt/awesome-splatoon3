@@ -165,7 +165,7 @@ export function App() {
           <div className="topbar-actions">
             <div className="language-select" aria-label="Language">
               <Select
-              value={locale}
+                value={locale}
                 onChange={(value) => setLocale(value as Locale)}
                 options={Object.entries(localeLabels).map(([key, label]) => ({ key, label }))}
               />
@@ -184,7 +184,7 @@ export function App() {
       </header>
 
       <main className="content">
-        <section className="controls" aria-label="Resource filters">
+        <Card className="controls" aria-label="Resource filters">
           <label className="search-field">
             <span>{dictionary.searchLabel}</span>
             <Input
@@ -220,7 +220,7 @@ export function App() {
               </Button>
             ))}
           </div>
-        </section>
+        </Card>
 
         <section className="result-summary" aria-live="polite">
           <strong>{filteredResources.length}</strong> {dictionary.resources}
@@ -246,12 +246,12 @@ export function App() {
             })}
           </section>
         ) : (
-          <section className="empty-state">
+          <Card className="empty-state">
             <p>{dictionary.noResults}</p>
             <Button type="primary" htmlType="button" onClick={() => setQuery('')}>
               {dictionary.clear}
             </Button>
-          </section>
+          </Card>
         )}
       </main>
 

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Fuse from 'fuse.js';
 import { Button, Card, Input, Select } from 'animal-island-ui';
+import { FaGithub } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 
 const localeLabels: Record<Locale, string> = {
@@ -166,8 +167,15 @@ export function App() {
                 options={Object.entries(localeLabels).map(([key, label]) => ({ key, label }))}
               />
             </div>
-            <a className="button-link" href="https://github.com/961853266hyt/awesome-splatoon3">
-              {dictionary.source}
+            <a
+              className="button-link button-link--icon"
+              href="https://github.com/961853266hyt/awesome-splatoon3"
+              aria-label={dictionary.source}
+              title={dictionary.source}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaGithub size={20} aria-hidden="true" />
             </a>
           </div>
         </nav>

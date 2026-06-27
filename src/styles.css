@@ -78,6 +78,17 @@ select {
   color: var(--animal-primary-color);
 }
 
+.button-link--icon {
+  border: none;
+  justify-content: center;
+  width: var(--animal-height-base);
+  padding: 0;
+}
+
+.button-link--icon:hover {
+  border-color: transparent;
+}
+
 .content {
   margin: -24px auto 0;
   max-width: 1160px;

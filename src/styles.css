@@ -115,6 +115,12 @@ select {
   width: 100%;
 }
 
+/* Hide the browser's native clear button so only the allowClear button shows */
+.search-field input::-webkit-search-cancel-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 .category-list {
   display: flex;
   flex-wrap: wrap;

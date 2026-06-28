@@ -3,6 +3,7 @@ import Fuse from 'fuse.js';
 import { Button, Card, Input, Select } from 'animal-island-ui';
 import { FaGithub } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
+import { Footer } from 'animal-island-ui';
 
 const localeLabels: Record<Locale, string> = {
   en: 'English',
@@ -253,13 +254,7 @@ export function App() {
         )}
       </main>
 
-      <footer className="site-footer">
-        <p>{dictionary.unofficial}</p>
-        <p>{dictionary.attribution}</p>
-        <a href={locale === 'zhCN' ? './CONTRIBUTING.zh-CN.md' : './CONTRIBUTING.md'}>
-          {dictionary.contribute}
-        </a>
-      </footer>
+      <Footer seamless />
     </div>
   );
 }

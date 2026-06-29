@@ -47,7 +47,7 @@ select {
 }
 
 .brand {
-  font-size: var(--animal-font-size-lg);
+  font-size: 24px;
   font-weight: 900;
   text-decoration: none;
 }

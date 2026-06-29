@@ -71,12 +71,6 @@ select {
   width: 100%;
 }
 
-.contribute-intro {
-  color: var(--animal-text-color-secondary);
-  line-height: 1.6;
-  margin: 0 0 var(--animal-spacing-lg);
-}
-
 .contribute-textarea {
   width: 100%;
   min-height: 96px;

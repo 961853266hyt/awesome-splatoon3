@@ -21,7 +21,6 @@ const copy = {
     clear: 'Clear search',
     contribute: 'Contribute',
     contributeTitle: 'Contribute a resource',
-    contributeIntro: 'Fill in the details below. Submitting opens a pre-filled GitHub issue for a maintainer to review.',
     fieldName: 'Resource name',
     fieldNamePlaceholder: 'e.g. Splatoon 3 Official Site',
     fieldNameRequired: 'Please enter the resource name.',
@@ -48,7 +47,6 @@ const copy = {
     clear: '清空搜索',
     contribute: '贡献',
     contributeTitle: '贡献资源',
-    contributeIntro: '填写下面的信息，提交后会跳转到已预填的 GitHub Issue，由维护者审核。',
     fieldName: '资源名称',
     fieldNamePlaceholder: '例如：Splatoon 3 官方网站',
     fieldNameRequired: '请输入资源名称。',
@@ -385,7 +383,6 @@ export function App() {
           </div>
         }
       >
-        <p className="contribute-intro">{dictionary.contributeIntro}</p>
         <Form
           className="contribute-form"
           form={contributeForm}

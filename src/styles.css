@@ -40,7 +40,7 @@ select {
 }
 
 .topbar {
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   gap: var(--animal-spacing-lg);
   justify-content: space-between;

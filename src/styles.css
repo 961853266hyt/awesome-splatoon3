@@ -46,10 +46,60 @@ select {
   justify-content: space-between;
 }
 
+.topbar-brand {
+  align-items: flex-end;
+  display: flex;
+  gap: var(--animal-spacing-md);
+}
+
 .brand {
   font-size: 24px;
   font-weight: 900;
   text-decoration: none;
+}
+
+.contribute-button {
+  flex-shrink: 0;
+}
+
+.contribute-form {
+  width: 100%;
+}
+
+/* The library Input's inner field sizes to content by default; fill the row. */
+.contribute-form input {
+  width: 100%;
+}
+
+.contribute-intro {
+  color: var(--animal-text-color-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--animal-spacing-lg);
+}
+
+.contribute-textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: 10px 12px;
+  border: var(--animal-border-width) solid var(--animal-border-color);
+  border-radius: var(--animal-radius-base, 12px);
+  background: var(--animal-bg-color, #fff);
+  color: var(--animal-text-color);
+  font-family: var(--animal-font-family);
+  font-size: var(--animal-font-size-base, 14px);
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.contribute-textarea:focus {
+  outline: none;
+  border-color: var(--animal-primary-color);
+}
+
+.contribute-actions {
+  display: flex;
+  gap: var(--animal-spacing-md);
+  justify-content: flex-end;
 }
 
 .topbar-actions {

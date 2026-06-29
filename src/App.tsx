@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Fuse from 'fuse.js';
-import { Button, Card, Input, Select, Tabs, Wallet } from 'animal-island-ui';
+import { Button, Card, Form, Input, Modal, Select, Tabs, Wallet } from 'animal-island-ui';
 import { FaSearch } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
@@ -20,6 +20,20 @@ const copy = {
     noResults: 'No resources found.',
     clear: 'Clear search',
     contribute: 'Contribute',
+    contributeTitle: 'Contribute a resource',
+    contributeIntro: 'Fill in the details below. Submitting opens a pre-filled GitHub issue for a maintainer to review.',
+    fieldName: 'Resource name',
+    fieldNamePlaceholder: 'e.g. Splatoon 3 Official Site',
+    fieldNameRequired: 'Please enter the resource name.',
+    fieldUrl: 'URL',
+    fieldUrlPlaceholder: 'https://example.com',
+    fieldUrlRequired: 'Please enter the resource URL.',
+    fieldUrlInvalid: 'Please enter a valid URL.',
+    fieldDescription: 'Description',
+    fieldDescriptionPlaceholder: 'A short description of the resource.',
+    fieldDescriptionRequired: 'Please enter a description.',
+    submit: 'Submit on GitHub',
+    cancel: 'Cancel',
     source: 'GitHub',
     unofficial: 'Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained resource list.',
     attribution: 'UI components powered by animal-island-ui.',
@@ -32,7 +46,21 @@ const copy = {
     resources: '个资源',
     noResults: '没有找到匹配资源。',
     clear: '清空搜索',
-    contribute: '贡献资源',
+    contribute: '贡献',
+    contributeTitle: '贡献资源',
+    contributeIntro: '填写下面的信息，提交后会跳转到已预填的 GitHub Issue，由维护者审核。',
+    fieldName: '资源名称',
+    fieldNamePlaceholder: '例如：Splatoon 3 官方网站',
+    fieldNameRequired: '请输入资源名称。',
+    fieldUrl: '链接',
+    fieldUrlPlaceholder: 'https://example.com',
+    fieldUrlRequired: '请输入资源链接。',
+    fieldUrlInvalid: '请输入有效的链接。',
+    fieldDescription: '描述',
+    fieldDescriptionPlaceholder: '简要描述这个资源。',
+    fieldDescriptionRequired: '请输入描述。',
+    submit: '提交到 GitHub',
+    cancel: '取消',
     source: 'GitHub',
     unofficial: '斯普拉遁 3 归任天堂所有。本项目是一个非官方的社区维护资源列表。',
     attribution: 'UI 组件基于 animal-island-ui。',
@@ -98,6 +126,8 @@ export function App() {
   const [query, setQuery] = useState(getInitialQuery);
   const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
   const [stars, setStars] = useState<number | undefined>(undefined);
+  const [contributeOpen, setContributeOpen] = useState(false);
+  const [contributeForm] = Form.useForm();
   const dictionary = copy[locale];
   const searchRef = useRef<HTMLDivElement>(null);
   const isMac = useMemo(
@@ -109,6 +139,35 @@ export function App() {
     () => new Map(categories.map((category) => [category.id, category])),
     [],
   );
+
+  const closeContribute = () => {
+    setContributeOpen(false);
+    contributeForm.resetFields();
+  };
+
+  const handleContributeFinish = (values: { name: string; url: string; description: string }) => {
+    const title = `[Resource] ${values.name}`;
+    const body = [
+      '### Resource name',
+      values.name,
+      '',
+      '### URL',
+      values.url,
+      '',
+      '### Description',
+      values.description,
+      '',
+      '---',
+      '_Submitted via the Awesome Splatoon3 contribution form._',
+    ].join('\n');
+
+    const issueUrl = `https://github.com/${GITHUB_REPO}/issues/new?title=${encodeURIComponent(
+      title,
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.open(issueUrl, '_blank', 'noopener,noreferrer');
+    closeContribute();
+  };
 
   const fuse = useMemo(
     () =>
@@ -241,9 +300,20 @@ export function App() {
     <div className="app-shell">
       <header className="site-header">
         <nav className="topbar" aria-label="Primary navigation">
-          <a className="brand" href="./" aria-label="Awesome Splatoon3 home">
-            Awesome Splatoon3
-          </a>
+          <div className="topbar-brand">
+            <a className="brand" href="./" aria-label="Awesome Splatoon3 home">
+              Awesome Splatoon3
+            </a>
+            <Button
+              className="contribute-button"
+              type="primary"
+              size="small"
+              htmlType="button"
+              onClick={() => setContributeOpen(true)}
+            >
+              {dictionary.contribute}
+            </Button>
+          </div>
           <div className="topbar-actions">
             <div className="header-search" ref={searchRef}>
               <Input
@@ -297,6 +367,64 @@ export function App() {
       </main>
 
       <Footer seamless />
+
+      <Modal
+        open={contributeOpen}
+        title={dictionary.contributeTitle}
+        typewriter={false}
+        width={520}
+        onClose={closeContribute}
+        footer={
+          <div className="contribute-actions">
+            <Button htmlType="button" onClick={closeContribute}>
+              {dictionary.cancel}
+            </Button>
+            <Button type="primary" htmlType="button" onClick={() => contributeForm.submit()}>
+              {dictionary.submit}
+            </Button>
+          </div>
+        }
+      >
+        <p className="contribute-intro">{dictionary.contributeIntro}</p>
+        <Form
+          className="contribute-form"
+          form={contributeForm}
+          layout="vertical"
+          initialValues={{ name: '', url: '', description: '' }}
+          onFinish={(values) =>
+            handleContributeFinish(values as { name: string; url: string; description: string })
+          }
+        >
+          <Form.Item
+            name="name"
+            label={dictionary.fieldName}
+            rules={[{ required: true, whitespace: true, message: dictionary.fieldNameRequired }]}
+          >
+            <Input placeholder={dictionary.fieldNamePlaceholder} />
+          </Form.Item>
+          <Form.Item
+            name="url"
+            label={dictionary.fieldUrl}
+            rules={[
+              { required: true, whitespace: true, message: dictionary.fieldUrlRequired },
+              { type: 'url', message: dictionary.fieldUrlInvalid },
+            ]}
+          >
+            <Input placeholder={dictionary.fieldUrlPlaceholder} />
+          </Form.Item>
+          <Form.Item
+            name="description"
+            label={dictionary.fieldDescription}
+            rules={[{ required: true, whitespace: true, message: dictionary.fieldDescriptionRequired }]}
+          >
+            <textarea
+              className="contribute-textarea"
+              rows={4}
+              placeholder={dictionary.fieldDescriptionPlaceholder}
+            />
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 }

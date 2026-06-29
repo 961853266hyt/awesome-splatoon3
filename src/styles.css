@@ -32,6 +32,10 @@ select {
 .app-shell {
   background: var(--page-bg);
   min-height: 100dvh;
+  /* Establish a stacking context so the negative z-index leaf layer renders
+     above this background but below the page content. */
+  isolation: isolate;
+  position: relative;
 }
 
 .site-header {

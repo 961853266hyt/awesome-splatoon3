@@ -14,7 +14,7 @@ const copy = {
   en: {
     title: 'Awesome Splatoon3',
     searchLabel: 'Search resources',
-    searchPlaceholder: 'Search by name, category, URL, or description',
+    searchPlaceholder: 'Search resources…',
     all: 'All',
     resources: 'resources',
     noResults: 'No resources found.',
@@ -27,7 +27,7 @@ const copy = {
   zhCN: {
     title: 'Awesome Splatoon3',
     searchLabel: '搜索资源',
-    searchPlaceholder: '按名称、分类、URL 或描述搜索',
+    searchPlaceholder: '搜索资源…',
     all: '全部',
     resources: '个资源',
     noResults: '没有找到匹配资源。',

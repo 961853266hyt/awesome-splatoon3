@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Fuse from 'fuse.js';
-import { Button, Card, Input, Select } from 'animal-island-ui';
-import { FaGithub } from 'react-icons/fa';
+import { Button, Card, Input, Select, Tabs } from 'animal-island-ui';
+import { FaGithub, FaSearch } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
 
@@ -96,6 +96,11 @@ export function App() {
   const [query, setQuery] = useState(getInitialQuery);
   const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
   const dictionary = copy[locale];
+  const searchRef = useRef<HTMLDivElement>(null);
+  const isMac = useMemo(
+    () => typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform),
+    [],
+  );
 
   const categoryMap = useMemo(
     () => new Map(categories.map((category) => [category.id, category])),
@@ -153,6 +158,63 @@ export function App() {
     window.history.replaceState(null, '', nextUrl);
   }, [locale, query, selectedCategory]);
 
+  useEffect(() => {
+    const handleShortcut = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        searchRef.current?.querySelector('input')?.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleShortcut);
+    return () => window.removeEventListener('keydown', handleShortcut);
+  }, []);
+
+  const resultsContent = (
+    <>
+      <section className="result-summary" aria-live="polite">
+        <strong>{filteredResources.length}</strong> {dictionary.resources}
+      </section>
+
+      {filteredResources.length > 0 ? (
+        <section className="resource-grid" aria-label="Resources">
+          {filteredResources.map((resource) => {
+            const category = categoryMap.get(resource.categoryId);
+
+            return (
+              <Card className="resource-card" key={resource.id}>
+                <span className="resource-category">{category?.title[locale] ?? resource.categoryId}</span>
+                <h2>
+                  <a href={resource.url}>{resource.name[locale]}</a>
+                </h2>
+                <p>{resource.description[locale]}</p>
+                <a className="resource-domain" href={resource.url} aria-label={resource.name[locale]}>
+                  {getDomain(resource.url)}
+                </a>
+              </Card>
+            );
+          })}
+        </section>
+      ) : (
+        <Card className="empty-state">
+          <p>{dictionary.noResults}</p>
+          <Button type="primary" htmlType="button" onClick={() => setQuery('')}>
+            {dictionary.clear}
+          </Button>
+        </Card>
+      )}
+    </>
+  );
+
+  const tabItems = [
+    { key: 'all', label: dictionary.all },
+    ...categories.map((category) => ({ key: category.id, label: category.title[locale] })),
+  ].map((item) => ({
+    ...item,
+    // Tabs only renders the active panel's children, so attach results to it.
+    children: item.key === selectedCategory ? resultsContent : null,
+  }));
+
   return (
     <div className="app-shell">
       <header className="site-header">
@@ -161,6 +223,26 @@ export function App() {
             Awesome Splatoon3
           </a>
           <div className="topbar-actions">
+            <div className="header-search" ref={searchRef}>
+              <Input
+                type="search"
+                value={query}
+                placeholder={dictionary.searchPlaceholder}
+                aria-label={dictionary.searchLabel}
+                prefix={<FaSearch size={14} aria-hidden="true" />}
+                suffix={
+                  query ? undefined : (
+                    <kbd className="kbd-hint" aria-hidden="true">
+                      {isMac ? '⌘' : 'Ctrl'} K
+                    </kbd>
+                  )
+                }
+                allowClear
+                shadow
+                onChange={(event) => setQuery(event.target.value)}
+                onClear={() => setQuery('')}
+              />
+            </div>
             <div className="language-select" aria-label="Language">
               <Select
                 value={locale}
@@ -183,75 +265,13 @@ export function App() {
       </header>
 
       <main className="content">
-        <Card className="controls" aria-label="Resource filters">
-          <label className="search-field">
-            <span>{dictionary.searchLabel}</span>
-            <Input
-              type="search"
-              value={query}
-              placeholder={dictionary.searchPlaceholder}
-              size="large"
-              allowClear
-              shadow
-              onChange={(event) => setQuery(event.target.value)}
-              onClear={() => setQuery('')}
-            />
-          </label>
-
-          <div className="category-list" aria-label="Categories">
-            <Button
-              className={selectedCategory === 'all' ? 'category active' : 'category'}
-              type={selectedCategory === 'all' ? 'primary' : 'default'}
-              htmlType="button"
-              onClick={() => setSelectedCategory('all')}
-            >
-              {dictionary.all}
-            </Button>
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                className={selectedCategory === category.id ? 'category active' : 'category'}
-                type={selectedCategory === category.id ? 'primary' : 'default'}
-                htmlType="button"
-                onClick={() => setSelectedCategory(category.id)}
-              >
-                {category.title[locale]}
-              </Button>
-            ))}
-          </div>
-        </Card>
-
-        <section className="result-summary" aria-live="polite">
-          <strong>{filteredResources.length}</strong> {dictionary.resources}
-        </section>
-
-        {filteredResources.length > 0 ? (
-          <section className="resource-grid" aria-label="Resources">
-            {filteredResources.map((resource) => {
-              const category = categoryMap.get(resource.categoryId);
-
-              return (
-                <Card className="resource-card" key={resource.id}>
-                  <span className="resource-category">{category?.title[locale] ?? resource.categoryId}</span>
-                  <h2>
-                    <a href={resource.url}>{resource.name[locale]}</a>
-                  </h2>
-                  <p>{resource.description[locale]}</p>
-                  <a className="resource-domain" href={resource.url} aria-label={resource.name[locale]}>
-                    {getDomain(resource.url)}
-                  </a>
-                </Card>
-              );
-            })}
-          </section>
-        ) : (
-          <Card className="empty-state">
-            <p>{dictionary.noResults}</p>
-            <Button type="primary" htmlType="button" onClick={() => setQuery('')}>
-              {dictionary.clear}
-            </Button>
-          </Card>
-        )}
+        <Tabs
+          className="category-tabs"
+          aria-label="Categories"
+          activeKey={selectedCategory}
+          onChange={setSelectedCategory}
+          items={tabItems}
+        />
       </main>
 
       <Footer seamless />

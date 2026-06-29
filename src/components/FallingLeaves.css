@@ -1,0 +1,58 @@
+/* Full-viewport decorative layer. Sits above the .app-shell background but
+   below page content via a negative z-index (the .app-shell establishes a
+   stacking context with `isolation: isolate`). */
+.falling-leaves {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Outer element: the vertical fall. */
+.leaf-fall {
+  position: absolute;
+  top: 0;
+  display: block;
+  will-change: transform;
+  animation: leaf-fall var(--fall-dur, 12s) linear var(--fall-delay, 0s) infinite;
+}
+
+/* Inner element: horizontal sway + rotation, so leaves flutter naturally. */
+.leaf-sway {
+  display: block;
+  will-change: transform;
+  animation: leaf-sway var(--sway-dur, 3.5s) ease-in-out var(--sway-delay, 0s) infinite alternate;
+}
+
+.leaf-shape {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 2px rgba(40, 60, 30, 0.12));
+}
+
+@keyframes leaf-fall {
+  from {
+    transform: translateY(-15vh);
+  }
+  to {
+    transform: translateY(115vh);
+  }
+}
+
+@keyframes leaf-sway {
+  from {
+    transform: translateX(calc(var(--sway, 24px) * -1)) rotate(var(--rot-from, -20deg));
+  }
+  to {
+    transform: translateX(var(--sway, 24px)) rotate(var(--rot-to, 200deg));
+  }
+}
+
+/* Respect users who prefer reduced motion — hide the effect entirely. */
+@media (prefers-reduced-motion: reduce) {
+  .falling-leaves {
+    display: none;
+  }
+}

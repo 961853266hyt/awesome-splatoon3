@@ -4,6 +4,7 @@ import { Button, Card, Form, Input, Modal, Select, Tabs, Wallet } from 'animal-i
 import { FaSearch } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
+import { FallingLeaves } from './components/FallingLeaves';
 
 const localeLabels: Record<Locale, string> = {
   en: 'English',
@@ -296,6 +297,7 @@ export function App() {
 
   return (
     <div className="app-shell">
+      <FallingLeaves />
       <header className="site-header">
         <nav className="topbar" aria-label="Primary navigation">
           <div className="topbar-brand">

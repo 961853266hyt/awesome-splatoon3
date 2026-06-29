@@ -53,7 +53,7 @@ select {
 }
 
 .topbar-actions {
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   gap: var(--animal-spacing-md);
 }
@@ -87,6 +87,28 @@ select {
 
 .button-link--icon:hover {
   border-color: transparent;
+}
+
+.button-link--wallet {
+  border: none;
+  justify-content: center;
+  padding: 0;
+  min-height: 0;
+}
+
+.button-link--wallet .animal-wallet-FHU5A {
+  /* zoom shrinks the layout box (unlike transform), so the pill bottom
+     sits on the same baseline as the search box and language select. */
+  zoom: 0.62;
+  /* The pill's white halo (box-shadow 0 0 0 4px) renders below the layout
+     box without affecting layout; lift it by the halo spread so the visible
+     ring lands on the shared baseline. (margin shares the zoom space.) */
+  margin-bottom: 4px;
+  transition: transform 0.15s ease;
+}
+
+.button-link--wallet:hover .animal-wallet-FHU5A {
+  transform: translateY(-2px);
 }
 
 .content {

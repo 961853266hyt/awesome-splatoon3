@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Fuse from 'fuse.js';
-import { Button, Card, Input, Select, Tabs } from 'animal-island-ui';
-import { FaGithub, FaSearch } from 'react-icons/fa';
+import { Button, Card, Input, Select, Tabs, Wallet } from 'animal-island-ui';
+import { FaSearch } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
 
@@ -83,6 +83,8 @@ function getInitialQuery() {
   return new URLSearchParams(window.location.search).get('q') ?? '';
 }
 
+const GITHUB_REPO = '961853266hyt/awesome-splatoon3';
+
 function getDomain(url: string) {
   try {
     return new URL(url).hostname.replace(/^www\./, '');
@@ -95,6 +97,7 @@ export function App() {
   const [locale, setLocale] = useState<Locale>(getInitialLocale);
   const [query, setQuery] = useState(getInitialQuery);
   const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
+  const [stars, setStars] = useState<number | undefined>(undefined);
   const dictionary = copy[locale];
   const searchRef = useRef<HTMLDivElement>(null);
   const isMac = useMemo(
@@ -168,6 +171,25 @@ export function App() {
 
     window.addEventListener('keydown', handleShortcut);
     return () => window.removeEventListener('keydown', handleShortcut);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch(`https://api.github.com/repos/${GITHUB_REPO}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
+      .then((data) => {
+        if (!cancelled && typeof data?.stargazers_count === 'number') {
+          setStars(data.stargazers_count);
+        }
+      })
+      .catch(() => {
+        /* keep placeholder balance on failure */
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const resultsContent = (
@@ -251,14 +273,14 @@ export function App() {
               />
             </div>
             <a
-              className="button-link button-link--icon"
-              href="https://github.com/961853266hyt/awesome-splatoon3"
-              aria-label={dictionary.source}
+              className="button-link button-link--wallet"
+              href={`https://github.com/${GITHUB_REPO}`}
+              aria-label={`${dictionary.source}${stars !== undefined ? ` · ${stars} stars` : ''}`}
               title={dictionary.source}
               target="_blank"
               rel="noreferrer"
             >
-              <FaGithub size={20} aria-hidden="true" />
+              <Wallet value={stars} size="medium" />
             </a>
           </div>
         </nav>

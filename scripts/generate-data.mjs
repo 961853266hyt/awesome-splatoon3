@@ -2,6 +2,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { SITE_URL } from '../site.config.mjs';
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const sectionIds = {
@@ -186,5 +188,29 @@ export const resources = ${JSON.stringify(resources, null, 2)} satisfies Resourc
 
 await mkdir(path.join(root, 'src/data'), { recursive: true });
 await writeFile(path.join(root, 'src/data/resources.generated.ts'), generated);
+
+const robotsTxt = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <url>
+    <loc>${SITE_URL}/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${SITE_URL}/?lang=zh-CN" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />
+  </url>
+</urlset>
+`;
+
+await mkdir(path.join(root, 'public'), { recursive: true });
+await writeFile(path.join(root, 'public/robots.txt'), robotsTxt);
+await writeFile(path.join(root, 'public/sitemap.xml'), sitemapXml);
 
 console.log(`Generated ${resources.length} resources across ${categories.length} categories.`);

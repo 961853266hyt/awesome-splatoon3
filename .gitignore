@@ -9,6 +9,10 @@ yarn-error.log*
 pnpm-debug.log*
 src/data/resources.generated.ts
 
+# generated SEO assets (see scripts/generate-data.mjs + site.config.mjs)
+public/robots.txt
+public/sitemap.xml
+
 # wrangler files
 .wrangler
 .dev.vars*

@@ -46,6 +46,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Splashtag Creater](https://splashtagmaker.com/) - Splashtag nameplate maker.
 - [Splatoon 3 Weapon Analyzer / MCP Server](https://splatoon.kotoar.com/mcp) - Tool and MCP server for Splatoon 3 weapon, build, schedule, and game data analysis.
 - [Splatoon VODs](https://splatoonvods.entre-el.top/) - Database for finding top Splatoon 3 player match videos with fine-grained filters such as weapons and maps.
+- [SplatLab](https://splat-lab.net) - Database of top Splatoon 3 player match highlight clips, searchable and filterable by weapon, stage, rule, uploader, and gear.
 - [stat.ink](https://stat.ink/) - Battle results tracking and statistics platform for Splatoon series games.
 
 ### Development

@@ -46,6 +46,7 @@
 - [Splashtag Creater](https://splashtagmaker.com/) - Splatoon 名牌制作工具。
 - [Splatoon 3 Weapon Analyzer / MCP Server](https://splatoon.kotoar.com/mcp) - 斯普拉遁 3 武器、配装、赛程和游戏数据分析工具及 MCP 服务器。
 - [Splatoon VODs | 斯普拉遁录像库](https://splatoonvods.entre-el.top/) - 可按武器、地图等条件细粒度检索上位势对战视频的数据库。
+- [SplatLab](https://splat-lab.net) - 收录斯普拉遁 3 上位势对战高光视频片段的数据库，可按武器、场地、规则、投稿者、装备等条件筛选检索。
 - [stat.ink](https://stat.ink/) - Splatoon 各系列对战结果记录与统计平台。
 
 ### 开发

@@ -63,6 +63,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Splatoon 3 - The Models Resource](https://models.spriters-resource.com/nintendo_switch/splatoon3/) - Downloadable Splatoon 3 model assets from The Models Resource.
 - [Splatoon 3 - The Spriters Resource](https://www.spriters-resource.com/nintendo_switch/splatoon3/) - Downloadable Splatoon 3 sprite and texture assets from The Spriters Resource.
 - [Splatoon 2 March 2017 Pilot Build Gamerip OST](https://archive.org/details/splatoon-2-march-2017-pilot-build-gamerip-ost_202605) - Archive of previously unreleased music from a Splatoon 2 pilot build.
+- [Underground Catalog](https://ugcatalog.pages.dev/) - Fan-made catalog of player-submitted Splatoon 3 gear coordinates, listing each outfit's headgear, clothing, shoes, and abilities.
 
 ### Miscellaneous
 

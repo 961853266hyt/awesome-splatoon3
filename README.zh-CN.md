@@ -63,6 +63,7 @@
 - [Splatoon 3 - The Models Resource](https://models.spriters-resource.com/nintendo_switch/splatoon3/) - The Models Resource 上的斯普拉遁 3 模型素材下载页。
 - [Splatoon 3 - The Spriters Resource](https://www.spriters-resource.com/nintendo_switch/splatoon3/) - The Spriters Resource 上的斯普拉遁 3 精灵图和贴图素材下载页。
 - [Splatoon 2 March 2017 Pilot Build Gamerip OST](https://archive.org/details/splatoon-2-march-2017-pilot-build-gamerip-ost_202605) - 此前未流出的 Splatoon 2 试玩版游戏原声带归档。
+- [Underground Catalog](https://ugcatalog.pages.dev/) - 玩家投稿的斯普拉遁 3 穿搭图鉴，展示每套搭配的头部、服装、鞋子装备及其能力。
 
 ### 杂项
 

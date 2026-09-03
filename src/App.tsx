@@ -5,88 +5,8 @@ import { FaSearch } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
 import { FallingLeaves } from './components/FallingLeaves';
+import { copy, localeLabels } from './i18n';
 import { Hero } from './components/Hero';
-
-const localeLabels: Record<Locale, string> = {
-  en: 'English',
-  zhCN: '简体中文',
-};
-
-const copy = {
-  en: {
-    title: 'Awesome Splatoon3',
-    searchLabel: 'Search resources',
-    searchPlaceholder: 'Search resources…',
-    all: 'All',
-    resources: 'resources',
-    noResults: 'No resources found.',
-    clear: 'Clear search',
-    contribute: 'Contribute',
-    contributeTitle: 'Contribute a resource',
-    fieldName: 'Resource name',
-    fieldNamePlaceholder: 'e.g. Splatoon 3 Official Site',
-    fieldNameRequired: 'Please enter the resource name.',
-    fieldUrl: 'URL',
-    fieldUrlPlaceholder: 'https://example.com',
-    fieldUrlRequired: 'Please enter the resource URL.',
-    fieldUrlInvalid: 'Please enter a valid URL.',
-    fieldDescription: 'Description',
-    fieldDescriptionPlaceholder: 'A short description of the resource.',
-    fieldDescriptionRequired: 'Please enter a description.',
-    submit: 'Submit on GitHub',
-    cancel: 'Cancel',
-    source: 'GitHub',
-    unofficial: 'Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained resource list.',
-    attribution: 'UI components powered by animal-island-ui.',
-    heroBadge: 'Unofficial · community-maintained',
-    heroHeadline: 'Your island of Splatoon 3 resources.',
-    heroLead:
-      'Official links, wikis, tools, assets and apps, hand-picked by the community and searchable in one place.',
-    heroBrowse: 'Browse resources',
-    heroStatResources: 'Resources',
-    heroStatCategories: 'Categories',
-    heroStatLanguages: 'Languages',
-    heroExploreTitle: 'Explore by category',
-    heroExploreHint: 'Pick a category to jump straight to it.',
-    heroIslandTime: 'Island time',
-  },
-  zhCN: {
-    title: 'Awesome Splatoon3',
-    searchLabel: '搜索资源',
-    searchPlaceholder: '搜索资源…',
-    all: '全部',
-    resources: '个资源',
-    noResults: '没有找到匹配资源。',
-    clear: '清空搜索',
-    contribute: '贡献',
-    contributeTitle: '贡献资源',
-    fieldName: '资源名称',
-    fieldNamePlaceholder: '例如：Splatoon 3 官方网站',
-    fieldNameRequired: '请输入资源名称。',
-    fieldUrl: '链接',
-    fieldUrlPlaceholder: 'https://example.com',
-    fieldUrlRequired: '请输入资源链接。',
-    fieldUrlInvalid: '请输入有效的链接。',
-    fieldDescription: '描述',
-    fieldDescriptionPlaceholder: '简要描述这个资源。',
-    fieldDescriptionRequired: '请输入描述。',
-    submit: '提交到 GitHub',
-    cancel: '取消',
-    source: 'GitHub',
-    unofficial: '斯普拉遁 3 归任天堂所有。本项目是一个非官方的社区维护资源列表。',
-    attribution: 'UI 组件基于 animal-island-ui。',
-    heroBadge: '非官方 · 社区共同维护',
-    heroHeadline: '斯普拉遁 3 玩家的资源小岛',
-    heroLead: '官方链接、Wiki、工具、素材和应用，由社区精选整理，在这里一搜即达。',
-    heroBrowse: '浏览资源',
-    heroStatResources: '个资源',
-    heroStatCategories: '个分类',
-    heroStatLanguages: '种语言',
-    heroExploreTitle: '按分类探索',
-    heroExploreHint: '选一个分类，直接跳到对应资源。',
-    heroIslandTime: '岛屿时间',
-  },
-} satisfies Record<Locale, Record<string, string>>;
 
 function parseLocale(value: string | null): Locale | null {
   if (value === 'zh-CN' || value === 'zhCN') {

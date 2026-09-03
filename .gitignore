@@ -19,3 +19,6 @@ public/sitemap.xml
 !.dev.vars.example
 .env*
 !.env.example
+
+# agent files
+/.claude/launch.json

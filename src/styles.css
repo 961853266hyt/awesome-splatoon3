@@ -41,8 +41,17 @@ select {
 }
 
 .site-header {
-  padding: var(--animal-spacing-xl) max(var(--animal-spacing-xl), calc((100vw - 1120px) / 2))
-    40px;
+  /* Sticky parchment bar so the brand, search and contribute CTA stay reachable
+     while scrolling, and stand apart from the green page background. */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgba(248, 248, 240, 0.92);
+  border-bottom: var(--animal-border-width) solid var(--animal-border-color-light);
+  box-shadow: var(--animal-shadow-sm);
+  padding: var(--animal-spacing-md) max(var(--animal-spacing-xl), calc((100vw - 1120px) / 2));
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .topbar {
@@ -166,8 +175,8 @@ select {
      even when the active tab has little content. */
   flex: 1;
   margin: 0 auto;
-  /* Offset for the smooth-scroll target so the tabs aren't flush with the top. */
-  scroll-margin-top: var(--animal-spacing-xl);
+  /* Offset for the smooth-scroll target so the sticky header doesn't cover the tabs. */
+  scroll-margin-top: 88px;
   max-width: 1160px;
   padding: 0 var(--animal-spacing-xl) 56px;
   width: 100%;
@@ -282,6 +291,35 @@ select {
   text-align: center;
 }
 
+/* ---------- Final CTA ---------- */
+
+.final-cta {
+  margin: 0 auto;
+  max-width: 1160px;
+  padding: 0 var(--animal-spacing-xl) 56px;
+  width: 100%;
+}
+
+.final-cta-card {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--animal-spacing-lg) var(--animal-spacing-xl);
+  justify-content: space-between;
+  padding: var(--animal-spacing-xl) 32px;
+}
+
+.final-cta-card h2 {
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 0 var(--animal-spacing-xs);
+}
+
+.final-cta-card p {
+  margin: 0;
+  opacity: 0.85;
+}
+
 .site-footer {
   border-top: var(--animal-border-width) solid var(--animal-border-color-light);
   color: var(--animal-text-color-secondary);
@@ -302,8 +340,13 @@ select {
 }
 
 @media (max-width: 640px) {
+  /* The stacked mobile header is too tall to pin; let it scroll away. */
   .site-header {
-    padding-bottom: 48px;
+    position: static;
+  }
+
+  .content {
+    scroll-margin-top: var(--animal-spacing-lg);
   }
 
   .topbar {

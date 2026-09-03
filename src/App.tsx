@@ -318,15 +318,13 @@ export function App() {
       <Hero
         locale={locale}
         copy={{
-          badge: dictionary.heroBadge,
           headline: dictionary.heroHeadline,
           lead: dictionary.heroLead,
           browse: dictionary.heroBrowse,
-          contribute: dictionary.contribute,
-          source: dictionary.source,
-          statResources: dictionary.heroStatResources,
-          statCategories: dictionary.heroStatCategories,
-          statLanguages: dictionary.heroStatLanguages,
+          source: dictionary.heroSource,
+          proof: dictionary.heroProof,
+          proofNoStars: dictionary.heroProofNoStars,
+          proofStars: dictionary.heroProofStars,
           exploreTitle: dictionary.heroExploreTitle,
           exploreHint: dictionary.heroExploreHint,
           islandTime: dictionary.heroIslandTime,
@@ -334,9 +332,9 @@ export function App() {
         categories={categories}
         counts={categoryCounts}
         totalResources={resources.length}
+        stars={stars}
         githubUrl={`https://github.com/${GITHUB_REPO}`}
         onBrowse={scrollToResources}
-        onContribute={() => setContributeOpen(true)}
         onSelectCategory={jumpToCategory}
       />
 
@@ -349,6 +347,18 @@ export function App() {
           items={tabItems}
         />
       </main>
+
+      <section className="final-cta" aria-labelledby="final-cta-title">
+        <Card className="final-cta-card" color="app-yellow">
+          <div>
+            <h2 id="final-cta-title">{dictionary.ctaTitle}</h2>
+            <p>{dictionary.ctaLead}</p>
+          </div>
+          <Button type="primary" size="large" htmlType="button" onClick={() => setContributeOpen(true)}>
+            {dictionary.contribute}
+          </Button>
+        </Card>
+      </section>
 
       <Footer seamless />
 

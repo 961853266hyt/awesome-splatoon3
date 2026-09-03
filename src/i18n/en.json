@@ -25,15 +25,17 @@
     "source": "GitHub",
     "unofficial": "Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained resource list.",
     "attribution": "UI components powered by animal-island-ui.",
-    "heroBadge": "Unofficial · community-maintained",
-    "heroHeadline": "Your island of Splatoon 3 resources.",
+    "heroHeadline": "Every Splatoon 3 resource, one searchable island.",
     "heroLead": "Official links, wikis, tools, assets and apps, hand-picked by the community and searchable in one place.",
-    "heroBrowse": "Browse resources",
-    "heroStatResources": "Resources",
-    "heroStatCategories": "Categories",
-    "heroStatLanguages": "Languages",
+    "heroBrowse": "Browse all {count} resources",
     "heroExploreTitle": "Explore by category",
     "heroExploreHint": "Pick a category to jump straight to it.",
-    "heroIslandTime": "Island time"
+    "heroIslandTime": "Island time",
+    "heroSource": "View source on GitHub",
+    "heroProof": "Community-maintained · {categories} categories · {stars}",
+    "heroProofNoStars": "Open source on GitHub",
+    "heroProofStars": "{stars} GitHub stars",
+    "ctaTitle": "Know a resource we're missing?",
+    "ctaLead": "Submit it in under a minute. We'll open a GitHub issue for you."
   }
 }

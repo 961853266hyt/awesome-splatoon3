@@ -25,15 +25,17 @@
     "source": "GitHub",
     "unofficial": "斯普拉遁 3 归任天堂所有。本项目是一个非官方的社区维护资源列表。",
     "attribution": "UI 组件基于 animal-island-ui。",
-    "heroBadge": "非官方 · 社区共同维护",
-    "heroHeadline": "斯普拉遁 3 玩家的资源小岛",
+    "heroHeadline": "斯普拉遁 3 的所有资源，一座岛上搜完。",
     "heroLead": "官方链接、Wiki、工具、素材和应用，由社区精选整理，在这里一搜即达。",
-    "heroBrowse": "浏览资源",
-    "heroStatResources": "个资源",
-    "heroStatCategories": "个分类",
-    "heroStatLanguages": "种语言",
+    "heroBrowse": "浏览全部 {count} 个资源",
     "heroExploreTitle": "按分类探索",
     "heroExploreHint": "选一个分类，直接跳到对应资源。",
-    "heroIslandTime": "岛屿时间"
+    "heroIslandTime": "岛屿时间",
+    "heroSource": "在 GitHub 查看源码",
+    "heroProof": "社区共同维护 · {categories} 个分类 · {stars}",
+    "heroProofNoStars": "GitHub 开源",
+    "heroProofStars": "GitHub {stars} 星",
+    "ctaTitle": "知道我们漏掉的好资源？",
+    "ctaLead": "一分钟即可提交，会自动为你创建 GitHub issue。"
   }
 }

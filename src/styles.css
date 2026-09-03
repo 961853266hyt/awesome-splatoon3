@@ -31,6 +31,8 @@ select {
 
 .app-shell {
   background: var(--page-bg);
+  display: flex;
+  flex-direction: column;
   min-height: 100dvh;
   /* Establish a stacking context so the negative z-index leaf layer renders
      above this background but below the page content. */
@@ -160,9 +162,13 @@ select {
 }
 
 .content {
+  /* Fill the remaining viewport height so the footer stays at the bottom
+     even when the active tab has little content. */
+  flex: 1;
   margin: -24px auto 0;
   max-width: 1160px;
   padding: 0 var(--animal-spacing-xl) 56px;
+  width: 100%;
 }
 
 .header-search {

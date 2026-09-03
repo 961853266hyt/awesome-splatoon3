@@ -42,7 +42,7 @@ select {
 
 .site-header {
   padding: var(--animal-spacing-xl) max(var(--animal-spacing-xl), calc((100vw - 1120px) / 2))
-    56px;
+    40px;
 }
 
 .topbar {
@@ -165,7 +165,9 @@ select {
   /* Fill the remaining viewport height so the footer stays at the bottom
      even when the active tab has little content. */
   flex: 1;
-  margin: -24px auto 0;
+  margin: 0 auto;
+  /* Offset for the smooth-scroll target so the tabs aren't flush with the top. */
+  scroll-margin-top: var(--animal-spacing-xl);
   max-width: 1160px;
   padding: 0 var(--animal-spacing-xl) 56px;
   width: 100%;

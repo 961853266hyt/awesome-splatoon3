@@ -5,6 +5,7 @@ import { FaSearch } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
 import { FallingLeaves } from './components/FallingLeaves';
+import { Hero } from './components/Hero';
 
 const localeLabels: Record<Locale, string> = {
   en: 'English',
@@ -37,6 +38,17 @@ const copy = {
     source: 'GitHub',
     unofficial: 'Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained resource list.',
     attribution: 'UI components powered by animal-island-ui.',
+    heroBadge: 'Unofficial · community-maintained',
+    heroHeadline: 'Your island of Splatoon 3 resources.',
+    heroLead:
+      'Official links, wikis, tools, assets and apps, hand-picked by the community and searchable in one place.',
+    heroBrowse: 'Browse resources',
+    heroStatResources: 'Resources',
+    heroStatCategories: 'Categories',
+    heroStatLanguages: 'Languages',
+    heroExploreTitle: 'Explore by category',
+    heroExploreHint: 'Pick a category to jump straight to it.',
+    heroIslandTime: 'Island time',
   },
   zhCN: {
     title: 'Awesome Splatoon3',
@@ -63,6 +75,16 @@ const copy = {
     source: 'GitHub',
     unofficial: '斯普拉遁 3 归任天堂所有。本项目是一个非官方的社区维护资源列表。',
     attribution: 'UI 组件基于 animal-island-ui。',
+    heroBadge: '非官方 · 社区共同维护',
+    heroHeadline: '斯普拉遁 3 玩家的资源小岛',
+    heroLead: '官方链接、Wiki、工具、素材和应用，由社区精选整理，在这里一搜即达。',
+    heroBrowse: '浏览资源',
+    heroStatResources: '个资源',
+    heroStatCategories: '个分类',
+    heroStatLanguages: '种语言',
+    heroExploreTitle: '按分类探索',
+    heroExploreHint: '选一个分类，直接跳到对应资源。',
+    heroIslandTime: '岛屿时间',
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -138,6 +160,23 @@ export function App() {
     () => new Map(categories.map((category) => [category.id, category])),
     [],
   );
+
+  const categoryCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const resource of resources) {
+      counts.set(resource.categoryId, (counts.get(resource.categoryId) ?? 0) + 1);
+    }
+    return counts;
+  }, []);
+
+  const scrollToResources = () => {
+    document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const jumpToCategory = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+    scrollToResources();
+  };
 
   const closeContribute = () => {
     setContributeOpen(false);
@@ -356,7 +395,32 @@ export function App() {
         </nav>
       </header>
 
-      <main className="content">
+      <Hero
+        locale={locale}
+        copy={{
+          badge: dictionary.heroBadge,
+          headline: dictionary.heroHeadline,
+          lead: dictionary.heroLead,
+          browse: dictionary.heroBrowse,
+          contribute: dictionary.contribute,
+          source: dictionary.source,
+          statResources: dictionary.heroStatResources,
+          statCategories: dictionary.heroStatCategories,
+          statLanguages: dictionary.heroStatLanguages,
+          exploreTitle: dictionary.heroExploreTitle,
+          exploreHint: dictionary.heroExploreHint,
+          islandTime: dictionary.heroIslandTime,
+        }}
+        categories={categories}
+        counts={categoryCounts}
+        totalResources={resources.length}
+        githubUrl={`https://github.com/${GITHUB_REPO}`}
+        onBrowse={scrollToResources}
+        onContribute={() => setContributeOpen(true)}
+        onSelectCategory={jumpToCategory}
+      />
+
+      <main className="content" id="resources">
         <Tabs
           className="category-tabs"
           aria-label="Categories"

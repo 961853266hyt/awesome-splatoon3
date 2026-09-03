@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "animal-island-ui-style": {
+      "source": "guokaigdg/animal-island-ui",
+      "sourceType": "github",
+      "skillPath": "skills/animal-island-ui-style/SKILL.md",
+      "computedHash": "f6c905dc6b3cec3365d5f16cad5ab561a02ce714f4de19aab7cffe8c596b7705"
+    }
+  }
+}

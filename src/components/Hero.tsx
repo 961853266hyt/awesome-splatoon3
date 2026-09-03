@@ -1,4 +1,4 @@
-import { Button, Card, Divider, Icon, Time, Typewriter, type IconName } from 'animal-island-ui';
+import { Button, Card, Icon, Time, Typewriter, type IconName } from 'animal-island-ui';
 import { FaGithub } from 'react-icons/fa';
 import wandIcon from 'animal-island-ui/items/item-001.png';
 import fishIcon from 'animal-island-ui/items/item-150.png';
@@ -160,8 +160,6 @@ export function Hero({
             </Card>
           ))}
         </div>
-
-        <Divider type="wave-yellow" className="explore-divider" />
       </section>
     </>
   );

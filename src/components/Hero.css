@@ -1,7 +1,16 @@
 /* ---------- Hero (above the fold) ---------- */
 
 .hero {
-  padding: 56px max(var(--animal-spacing-xl), calc((100vw - 1120px) / 2)) 40px;
+  /* Fill the first viewport (minus the sticky header) so the explore
+     section always starts below the fold. */
+  align-items: center;
+  display: flex;
+  min-height: calc(100dvh - var(--site-header-height, 76px));
+  padding: 40px max(var(--animal-spacing-xl), calc((100vw - 1120px) / 2)) 56px;
+}
+
+.hero-inner {
+  width: 100%;
 }
 
 .hero-inner {
@@ -209,10 +218,6 @@
   padding: 4px 10px;
 }
 
-.explore-divider {
-  margin-top: 40px;
-}
-
 @media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
@@ -224,7 +229,9 @@
 }
 
 @media (max-width: 640px) {
+  /* The mobile header scrolls away, so the hero owns the whole viewport. */
   .hero {
+    min-height: 100dvh;
     padding-top: 32px;
   }
 

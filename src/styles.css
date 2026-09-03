@@ -30,6 +30,8 @@ select {
 }
 
 .app-shell {
+  --site-header-height: 76px;
+
   background: var(--page-bg);
   display: flex;
   flex-direction: column;

@@ -4,4 +4,4 @@
 //   SITE_URL=https://example.com npm run build
 // No trailing slash.
 export const SITE_URL =
-  process.env.SITE_URL ?? 'https://awesome-splatoon3.961853266.workers.dev';
+  process.env.SITE_URL ?? 'https://squids.fyi';

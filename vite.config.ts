@@ -16,4 +16,9 @@ const htmlSiteUrl = {
 export default defineConfig(() => ({
   base: '/',
   plugins: [react(), cloudflare(), htmlSiteUrl],
+  // Inlined at build time so the Worker redirect target always matches the
+  // canonical URL baked into index.html / sitemap.xml.
+  define: {
+    __SITE_URL__: JSON.stringify(SITE_URL),
+  },
 }));

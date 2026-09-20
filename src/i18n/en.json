@@ -2,6 +2,9 @@
   "label": "English",
   "messages": {
     "title": "Awesome Splatoon3",
+    "metaTitle": "Awesome Splatoon 3 — Tools, Wikis & Community Resources",
+    "metaDescription": "A searchable directory of hand-picked Splatoon 3 resources: official links, wikis, gear and map planners, datamining assets, apps and bots.",
+    "switchLocale": "简体中文",
     "searchLabel": "Search resources",
     "searchPlaceholder": "Search resources…",
     "all": "All",

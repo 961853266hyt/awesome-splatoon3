@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { SITE_URL } from '../site.config.mjs';
+import { localeTag, localeUrl, locales } from './seo.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -195,17 +196,29 @@ Allow: /
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
+// Each locale gets its own <url> entry, and every entry repeats the full set
+// of alternates -- Google discards hreflang annotations that are not reciprocal.
+const alternateLinks = [
+  ...locales.map(
+    (locale) =>
+      `    <xhtml:link rel="alternate" hreflang="${localeTag[locale]}" href="${localeUrl(locale)}" />`,
+  ),
+  `    <xhtml:link rel="alternate" hreflang="x-default" href="${localeUrl('en')}" />`,
+].join('\n');
+
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
 >
-  <url>
-    <loc>${SITE_URL}/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}/" />
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="${SITE_URL}/?lang=zh-CN" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />
-  </url>
+${locales
+  .map(
+    (locale) => `  <url>
+    <loc>${localeUrl(locale)}</loc>
+${alternateLinks}
+  </url>`,
+  )
+  .join('\n')}
 </urlset>
 `;
 

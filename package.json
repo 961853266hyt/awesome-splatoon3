@@ -7,7 +7,7 @@
     "predev": "node scripts/generate-data.mjs",
     "dev": "vite --host 127.0.0.1",
     "prebuild": "node scripts/generate-data.mjs",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
     "preview": "npm run build && wrangler dev",
     "deploy": "npm run build && wrangler deploy"
   },

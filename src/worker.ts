@@ -18,6 +18,20 @@ export default {
       return Response.redirect(`${__SITE_URL__}${url.pathname}${url.search}`, 301);
     }
 
+    // Locales used to be selected with "?lang=zh-CN" on a single URL. They now
+    // live at their own paths, so old links and indexed entries are forwarded
+    // to the matching path with the rest of the query string intact.
+    const legacyLocale = url.searchParams.get('lang');
+
+    if (legacyLocale !== null) {
+      url.searchParams.delete('lang');
+
+      const pathname = legacyLocale.toLowerCase().startsWith('zh') ? '/zh/' : '/';
+      const search = url.searchParams.toString();
+
+      return Response.redirect(`${url.origin}${pathname}${search ? `?${search}` : ''}`, 301);
+    }
+
     return env.ASSETS.fetch(request);
   },
 };

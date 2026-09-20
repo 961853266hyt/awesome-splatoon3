@@ -3,64 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A searchable directory of useful Splatoon 3 community resources."
-    />
-
-    <!-- Canonical & language alternates -->
-    <link rel="canonical" href="%SITE_URL%/" />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="%SITE_URL%/"
-    />
-    <link
-      rel="alternate"
-      hreflang="zh-CN"
-      href="%SITE_URL%/?lang=zh-CN"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="%SITE_URL%/"
-    />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Awesome Splatoon3" />
-    <meta property="og:title" content="Awesome Splatoon3" />
-    <meta
-      property="og:description"
-      content="A searchable directory of useful Splatoon 3 community resources."
-    />
-    <meta property="og:url" content="%SITE_URL%/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="zh_CN" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Awesome Splatoon3" />
-    <meta
-      name="twitter:description"
-      content="A searchable directory of useful Splatoon 3 community resources."
-    />
-
     <meta name="theme-color" content="#faf3e0" />
     <meta name="robots" content="index, follow" />
 
     <!-- Google Search Console ownership verification -->
     <meta name="google-site-verification" content="B2UlzKZj3UsPW9ZT8Vj_ZZ4VS8GrKzSab1hcXFhUXhI" />
 
+    <!-- Title, description, canonical, hreflang and social cards are injected
+         per locale: by the seo-head Vite plugin for dev and the client build,
+         then rewritten by scripts/prerender.mjs once per locale. -->
+    <!--seo-head-start--><!--seo-head-end-->
+
     <script type="module">
       if (import.meta.env.DEV) {
         import("react-grab");
       }
     </script>
-    <title>Awesome Splatoon3</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
   </body>
 </html>

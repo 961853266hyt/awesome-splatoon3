@@ -1,56 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Fuse from 'fuse.js';
-import { Button, Card, Form, Input, Modal, Select, Tabs, Wallet } from 'animal-island-ui';
+import { Button, Card, Form, Input, Modal, Tabs, Wallet } from 'animal-island-ui';
 import { FaSearch } from 'react-icons/fa';
 import { categories, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
 import { FallingLeaves } from './components/FallingLeaves';
-import { copy, localeLabels } from './i18n';
+import { copy } from './i18n';
+import { useMounted } from './useMounted';
+import { localePath, localeTag, locales } from './i18n/routing';
 import { Hero } from './components/Hero';
-
-function parseLocale(value: string | null): Locale | null {
-  if (value === 'zh-CN' || value === 'zhCN') {
-    return 'zhCN';
-  }
-
-  if (value === 'en') {
-    return 'en';
-  }
-
-  return null;
-}
-
-function getInitialLocale(): Locale {
-  const params = new URLSearchParams(window.location.search);
-  const queryLocale = parseLocale(params.get('lang'));
-
-  if (queryLocale) {
-    return queryLocale;
-  }
-
-  const storedLocale = parseLocale(window.localStorage.getItem('awesome-splatoon3-locale'));
-
-  if (storedLocale) {
-    return storedLocale;
-  }
-
-  return window.navigator.language.toLowerCase().startsWith('zh') ? 'zhCN' : 'en';
-}
-
-function getInitialCategory() {
-  const params = new URLSearchParams(window.location.search);
-  const category = params.get('category');
-
-  if (category && categories.some((item) => item.id === category)) {
-    return category;
-  }
-
-  return 'all';
-}
-
-function getInitialQuery() {
-  return new URLSearchParams(window.location.search).get('q') ?? '';
-}
 
 const GITHUB_REPO = '961853266hyt/awesome-splatoon3';
 
@@ -62,19 +20,25 @@ function getDomain(url: string) {
   }
 }
 
-export function App() {
-  const [locale, setLocale] = useState<Locale>(getInitialLocale);
-  const [query, setQuery] = useState(getInitialQuery);
-  const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
+export interface AppProps {
+  /** Locale this page is being rendered for, derived from the URL path. */
+  locale: Locale;
+}
+
+export function App({ locale }: AppProps) {
+  // Every piece of state below starts at its default rather than reading the
+  // URL, so the first client render matches the prerendered HTML exactly.
+  // Anything URL- or browser-dependent waits for `mounted`.
+  const mounted = useMounted();
+  const [query, setQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [stars, setStars] = useState<number | undefined>(undefined);
   const [contributeOpen, setContributeOpen] = useState(false);
   const [contributeForm] = Form.useForm();
   const dictionary = copy[locale];
   const searchRef = useRef<HTMLDivElement>(null);
-  const isMac = useMemo(
-    () => typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform),
-    [],
-  );
+  const isMac = mounted && /Mac|iPhone|iPad|iPod/.test(navigator.platform);
+  const otherLocale = locales.find((item) => item !== locale) ?? 'en';
 
   const categoryMap = useMemo(
     () => new Map(categories.map((category) => [category.id, category])),
@@ -157,14 +121,32 @@ export function App() {
     return searchedResources.filter((resource) => resource.categoryId === selectedCategory);
   }, [fuse, query, selectedCategory]);
 
+  // Adopt the search/category from the URL once, after hydration has matched
+  // the prerendered markup.
   useEffect(() => {
-    window.localStorage.setItem('awesome-splatoon3-locale', locale);
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+
+    if (category && categories.some((item) => item.id === category)) {
+      setSelectedCategory(category);
+    }
+
+    const initialQuery = params.get('q');
+
+    if (initialQuery) {
+      setQuery(initialQuery);
+    }
+  }, []);
+
+  // Mirror search/category back into the URL so results stay shareable. The
+  // locale is no longer a parameter -- it is the path this page was served
+  // from, so the pathname is preserved as-is.
+  useEffect(() => {
+    if (!mounted) {
+      return;
+    }
 
     const params = new URLSearchParams();
-
-    if (locale !== 'en') {
-      params.set('lang', 'zh-CN');
-    }
 
     if (query.trim()) {
       params.set('q', query.trim());
@@ -174,9 +156,11 @@ export function App() {
       params.set('category', selectedCategory);
     }
 
-    const nextUrl = params.toString() ? `${window.location.pathname}?${params}` : window.location.pathname;
+    const nextUrl = params.toString()
+      ? `${window.location.pathname}?${params}`
+      : window.location.pathname;
     window.history.replaceState(null, '', nextUrl);
-  }, [locale, query, selectedCategory]);
+  }, [mounted, query, selectedCategory]);
 
   useEffect(() => {
     const handleShortcut = (event: KeyboardEvent) => {
@@ -256,11 +240,13 @@ export function App() {
 
   return (
     <div className="app-shell">
-      <FallingLeaves />
+      {/* Leaf positions are random, so they would never match the prerendered
+          markup -- mount them only after hydration. Purely decorative. */}
+      {mounted && <FallingLeaves />}
       <header className="site-header">
         <nav className="topbar" aria-label="Primary navigation">
           <div className="topbar-brand">
-            <a className="brand" href="./" aria-label="Awesome Splatoon3 home">
+            <a className="brand" href={localePath[locale]} aria-label="Awesome Splatoon3 home">
               Awesome Splatoon3
             </a>
             <Button
@@ -294,13 +280,16 @@ export function App() {
                 onClear={() => setQuery('')}
               />
             </div>
-            <div className="language-select" aria-label="Language">
-              <Select
-                value={locale}
-                onChange={(value) => setLocale(value as Locale)}
-                options={Object.entries(localeLabels).map(([key, label]) => ({ key, label }))}
-              />
-            </div>
+            {/* A real link, not a Select: this is how crawlers discover the
+                other language version, and it keeps the locale in the URL. */}
+            <a
+              className="button-link language-link"
+              href={localePath[otherLocale]}
+              hrefLang={localeTag[otherLocale]}
+              lang={localeTag[otherLocale]}
+            >
+              {dictionary.switchLocale}
+            </a>
             <a
               className="button-link button-link--wallet"
               href={`https://github.com/${GITHUB_REPO}`}

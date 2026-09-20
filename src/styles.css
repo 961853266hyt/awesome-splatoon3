@@ -119,7 +119,10 @@ select {
   gap: var(--animal-spacing-md);
 }
 
-.language-select {
+/* The language switcher is an anchor styled like the other header buttons, so
+   crawlers can follow it to the other locale. */
+.language-link {
+  justify-content: center;
   min-width: 132px;
 }
 
@@ -360,7 +363,6 @@ select {
     width: 100%;
   }
 
-  .language-select,
   .button-link {
     flex: 1;
     justify-content: center;

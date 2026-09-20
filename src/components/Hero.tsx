@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import wandIcon from 'animal-island-ui/items/item-001.png';
 import fishIcon from 'animal-island-ui/items/item-150.png';
 import type { Category, Locale } from '../data/resources.generated';
+import { useMounted } from '../useMounted';
 import './Hero.css';
 
 export interface HeroCopy {
@@ -74,6 +75,9 @@ export function Hero({
   onBrowse,
   onSelectCategory,
 }: HeroProps) {
+  // The typewriter and the island clock both render differently on every tick,
+  // so they stay out of the prerendered markup and mount once hydration is done.
+  const mounted = useMounted();
   const proof = fill(copy.proof, {
     categories: categories.length,
     stars:
@@ -93,10 +97,14 @@ export function Hero({
               <span className="hero-headline-ghost" aria-hidden="true">
                 {copy.headline}
               </span>
+              {/* The ghost above already carries the headline text for
+                  crawlers, so this animated copy can stay empty until mount. */}
               <span>
-                <Typewriter speed={55} trigger={locale}>
-                  {copy.headline}
-                </Typewriter>
+                {mounted ? (
+                  <Typewriter speed={55} trigger={locale}>
+                    {copy.headline}
+                  </Typewriter>
+                ) : null}
               </span>
             </h1>
 
@@ -118,7 +126,7 @@ export function Hero({
           <div className="hero-visual" aria-hidden="true">
             <Card className="hero-passport" color="app-teal" pattern="app-teal">
               <span className="hero-passport-label">{copy.islandTime}</span>
-              <Time type="game" />
+              {mounted ? <Time type="game" /> : null}
             </Card>
             <span className="hero-item hero-item--wand">
               <Icon src={wandIcon} size={60} />

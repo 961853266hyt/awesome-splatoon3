@@ -19,11 +19,26 @@ const clientDir = path.join(root, 'dist/client');
 
 const { render } = await import(path.join(root, 'dist/server/entry-server.js'));
 
-const template = await readFile(path.join(clientDir, 'index.html'), 'utf8');
+// The English page is written back over dist/client/index.html, which is also
+// where the template comes from -- so the untouched template is kept aside,
+// letting this script be re-run without a fresh `vite build` in between.
+const templateCopy = path.join(root, 'dist/template.html');
+let template = await readFile(path.join(clientDir, 'index.html'), 'utf8');
+
+if (template.includes('<!--app-html-->')) {
+  await writeFile(templateCopy, template);
+} else {
+  template = await readFile(templateCopy, 'utf8').catch(() => {
+    throw new Error(
+      'dist/client/index.html has already been prerendered and no dist/template.html ' +
+        'snapshot exists. Run `vite build` first.',
+    );
+  });
+}
 
 for (const marker of ['<!--seo-head-start-->', '<!--app-html-->']) {
   if (!template.includes(marker)) {
-    throw new Error(`dist/client/index.html is missing the ${marker} placeholder`);
+    throw new Error(`The prerender template is missing the ${marker} placeholder`);
   }
 }
 

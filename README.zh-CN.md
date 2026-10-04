@@ -78,6 +78,7 @@
 ### 机器人
 
 - [paul-sama/splatoon3-bot](https://github.com/paul-sama/splatoon3-bot) - Splatoon 3 机器人，可查询比赛中遇到的玩家数据，支持 KOOK、Telegram 和 Discord。
+- [小鱿鱿bot](https://github.com/Cypas/splatoon3-schedule) - 基于 NoneBot2 的插件，可查询对战、打工、活动和祭典日程，支持 OneBot、Telegram、KOOK、QQ 和 Discord。
 
 ## 贡献
 

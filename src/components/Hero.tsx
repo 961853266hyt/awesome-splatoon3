@@ -93,13 +93,16 @@ export function Hero({
         <div className="hero-inner">
           <div className="hero-copy">
             <h1 id="hero-headline" className="hero-headline">
+              {/* The complete headline, in the prerendered HTML, for screen
+                  readers and crawlers. The two copies below are only drawn,
+                  so they are hidden from both. */}
+              <span className="visually-hidden">{copy.headline}</span>
               {/* Invisible copy reserves the final height so the typewriter never reflows the page. */}
               <span className="hero-headline-ghost" aria-hidden="true">
                 {copy.headline}
               </span>
-              {/* The ghost above already carries the headline text for
-                  crawlers, so this animated copy can stay empty until mount. */}
-              <span>
+              {/* Animated copy: empty until mount, then typed out letter by letter. */}
+              <span aria-hidden="true">
                 {mounted ? (
                   <Typewriter speed={55} trigger={locale}>
                     {copy.headline}

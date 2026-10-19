@@ -8,6 +8,8 @@
 
 > A curated list of useful and interesting Splatoon 3 resources.
 
+Browse and search the list on the website: [squids.fyi](https://squids.fyi/)
+
 Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained resource list.
 
 ## Contents

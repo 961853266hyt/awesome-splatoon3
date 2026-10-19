@@ -31,6 +31,12 @@ const ogLocale = {
   zhCN: 'zh_CN',
 };
 
+/** Social preview images in public/, 1200x630, one per locale. */
+const ogImage = {
+  en: '/og-image.png',
+  zhCN: '/og-image-zh.png',
+};
+
 const messageFiles = {
   en: 'src/i18n/en.json',
   zhCN: 'src/i18n/zh-CN.json',
@@ -75,9 +81,11 @@ export async function headFor(locale) {
   const title = escapeAttribute(messages.metaTitle);
   const description = escapeAttribute(messages.metaDescription);
   const url = localeUrl(locale);
+  const image = `${SITE_URL}${ogImage[locale]}`;
 
   return `<title>${title}</title>
     <meta name="description" content="${description}" />
+    <meta name="robots" content="index, follow" />
 
     <link rel="canonical" href="${url}" />
 ${alternates()}
@@ -87,13 +95,29 @@ ${alternates()}
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />
     <meta property="og:url" content="${url}" />
+    <meta property="og:image" content="${image}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${title}" />
     <meta property="og:locale" content="${ogLocale[locale]}" />
 ${locales
   .filter((other) => other !== locale)
   .map((other) => `    <meta property="og:locale:alternate" content="${ogLocale[other]}" />`)
   .join('\n')}
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${title}" />
-    <meta name="twitter:description" content="${description}" />`;
+    <meta name="twitter:description" content="${description}" />
+    <meta name="twitter:image" content="${image}" />`;
+}
+
+/**
+ * <head> block for a locale's 404.html. No canonical, alternates or social
+ * cards -- the page has no URL of its own -- and it is kept out of the index.
+ */
+export async function notFoundHeadFor(locale) {
+  const messages = await readMessages(locale);
+
+  return `<title>${escapeAttribute(messages.notFoundTitle)}</title>
+    <meta name="robots" content="noindex" />`;
 }

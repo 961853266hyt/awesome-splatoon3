@@ -3,6 +3,8 @@
 // Runs after `vite build` (client) and `vite build --ssr` (server bundle):
 //   dist/client/index.html     -> English, rendered
 //   dist/client/zh/index.html  -> Chinese, rendered
+//   dist/client/404.html       -> English "page not found"
+//   dist/client/zh/404.html    -> Chinese "page not found"
 //
 // Crawlers and social scrapers get the full resource list in the initial HTML
 // instead of an empty <div id="root">, and each locale carries its own title,
@@ -12,12 +14,12 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { headFor, localePath, localeTag, locales } from './seo.mjs';
+import { headFor, localePath, localeTag, locales, notFoundHeadFor } from './seo.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const clientDir = path.join(root, 'dist/client');
 
-const { render } = await import(path.join(root, 'dist/server/entry-server.js'));
+const { render, renderNotFound } = await import(path.join(root, 'dist/server/entry-server.js'));
 
 // The English page is written back over dist/client/index.html, which is also
 // where the template comes from -- so the untouched template is kept aside,
@@ -42,23 +44,46 @@ for (const marker of ['<!--seo-head-start-->', '<!--app-html-->']) {
   }
 }
 
-for (const locale of locales) {
-  const appHtml = render(locale);
+// The 404 pages ship without the client bundle: nothing on them needs
+// hydrating, and the App bundle would try to hydrate them as the home page.
+const staticTemplate = template
+  .replace(/\s*<script type="module"[^>]*><\/script>/g, '')
+  .replace(/\s*<link rel="modulepreload"[^>]*>/g, '');
 
-  const html = template
+if (staticTemplate.includes('<script')) {
+  throw new Error('Could not strip the client bundle from the 404 template');
+}
+
+function fill(source, locale, head, appHtml) {
+  // Function replacements, so a "$" in the content is never read as a pattern.
+  return source
     .replace(/<html lang="[^"]*"/, `<html lang="${localeTag[locale]}"`)
     .replace(
       /<!--seo-head-start-->[\s\S]*?<!--seo-head-end-->/,
-      `<!--seo-head-start-->${await headFor(locale)}<!--seo-head-end-->`,
+      () => `<!--seo-head-start-->${head}<!--seo-head-end-->`,
     )
-    .replace('<!--app-html-->', appHtml);
+    .replace('<!--app-html-->', () => appHtml);
+}
 
-  // "/" -> dist/client/index.html, "/zh/" -> dist/client/zh/index.html
-  const outFile = path.join(clientDir, localePath[locale].replace(/^\//, ''), 'index.html');
+async function write(locale, fileName, html) {
+  // "/" -> dist/client/<fileName>, "/zh/" -> dist/client/zh/<fileName>
+  const outFile = path.join(clientDir, localePath[locale].replace(/^\//, ''), fileName);
 
   await mkdir(path.dirname(outFile), { recursive: true });
   await writeFile(outFile, html);
 
   const relative = path.relative(root, outFile);
-  console.log(`Prerendered ${localePath[locale]} -> ${relative} (${(html.length / 1024).toFixed(1)} kB)`);
+  console.log(`Prerendered ${relative} (${(html.length / 1024).toFixed(1)} kB)`);
+}
+
+for (const locale of locales) {
+  await write(locale, 'index.html', fill(template, locale, await headFor(locale), render(locale)));
+
+  // wrangler.jsonc serves the nearest 404.html with a 404 status, so anything
+  // under /zh/ that does not exist gets the Chinese page.
+  await write(
+    locale,
+    '404.html',
+    fill(staticTemplate, locale, await notFoundHeadFor(locale), renderNotFound(locale)),
+  );
 }

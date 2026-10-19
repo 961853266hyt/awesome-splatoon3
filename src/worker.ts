@@ -4,7 +4,8 @@
 // After moving to the custom domain, every request that still arrives on the
 // old *.workers.dev hostname is permanently redirected (301) to the same path
 // on the site URL so existing links and search-engine index entries carry over.
-// Requests on the custom domain fall through to the static assets.
+// Plain-HTTP requests on the custom domain are upgraded the same way.
+// Everything else falls through to the static assets.
 
 interface Env {
   ASSETS: { fetch(request: Request): Promise<Response> };
@@ -15,6 +16,13 @@ export default {
     const url = new URL(request.url);
 
     if (url.hostname.endsWith('.workers.dev')) {
+      return Response.redirect(`${__SITE_URL__}${url.pathname}${url.search}`, 301);
+    }
+
+    // Plain HTTP on the custom domain would otherwise serve the whole site
+    // under a second, insecure URL. Only the site's own host is redirected so
+    // `wrangler dev` on http://localhost keeps working.
+    if (url.protocol === 'http:' && url.hostname === new URL(__SITE_URL__).hostname) {
       return Response.redirect(`${__SITE_URL__}${url.pathname}${url.search}`, 301);
     }
 

@@ -8,7 +8,10 @@
   },
   "assets": {
     "binding": "ASSETS",
-    "not_found_handling": "single-page-application",
+    // Every real page is prerendered (see scripts/prerender.mjs), so unknown
+    // paths get the nearest 404.html with a 404 status -- /zh/404.html under
+    // /zh/ -- instead of the home page with a 200.
+    "not_found_handling": "404-page",
     // Run the Worker before serving static assets so the workers.dev -> custom
     // domain redirect fires even for paths that match a built asset (e.g. "/").
     "run_worker_first": true

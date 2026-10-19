@@ -39,6 +39,10 @@
     "heroProofNoStars": "GitHub 开源",
     "heroProofStars": "GitHub {stars} 星",
     "ctaTitle": "知道我们漏掉的好资源？",
-    "ctaLead": "一分钟即可提交，会自动为你创建 GitHub issue。"
+    "ctaLead": "一分钟即可提交，会自动为你创建 GitHub issue。",
+    "notFoundTitle": "页面不存在 — 斯普拉遁 3 资源导航",
+    "notFoundHeading": "页面不存在",
+    "notFoundLead": "你要找的页面不存在，或者已经移走了。",
+    "notFoundHome": "返回全部资源"
   }
 }

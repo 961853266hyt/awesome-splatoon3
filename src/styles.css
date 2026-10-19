@@ -325,6 +325,31 @@ select {
   opacity: 0.85;
 }
 
+/* ---------- 404 ---------- */
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  padding-top: 56px;
+}
+
+.not-found-card {
+  align-self: flex-start;
+  max-width: 520px;
+  padding: 32px;
+  text-align: center;
+}
+
+.not-found-card h1 {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 0 0 var(--animal-spacing-sm);
+}
+
+.not-found-card p {
+  margin: 0 0 var(--animal-spacing-xl);
+}
+
 .site-footer {
   border-top: var(--animal-border-width) solid var(--animal-border-color-light);
   color: var(--animal-text-color-secondary);

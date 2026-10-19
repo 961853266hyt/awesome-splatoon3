@@ -8,3 +8,4 @@ export const localePath: Record<Locale, string>;
 export const localeTag: Record<Locale, string>;
 export function localeUrl(locale: Locale): string;
 export function headFor(locale: Locale): Promise<string>;
+export function notFoundHeadFor(locale: Locale): Promise<string>;

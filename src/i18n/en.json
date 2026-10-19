@@ -39,6 +39,10 @@
     "heroProofNoStars": "Open source on GitHub",
     "heroProofStars": "{stars} GitHub stars",
     "ctaTitle": "Know a resource we're missing?",
-    "ctaLead": "Submit it in under a minute. We'll open a GitHub issue for you."
+    "ctaLead": "Submit it in under a minute. We'll open a GitHub issue for you.",
+    "notFoundTitle": "Page not found — Awesome Splatoon 3",
+    "notFoundHeading": "Page not found",
+    "notFoundLead": "The page you're looking for doesn't exist or has moved.",
+    "notFoundHome": "Back to all resources"
   }
 }

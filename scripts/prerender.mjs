@@ -8,7 +8,7 @@
 //
 // Crawlers and social scrapers get the full resource list in the initial HTML
 // instead of an empty <div id="root">, and each locale carries its own title,
-// description, canonical and <html lang>.
+// description, canonical, structured data and <html lang>.
 
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -19,7 +19,7 @@ import { headFor, localePath, localeTag, locales, notFoundHeadFor } from './seo.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const clientDir = path.join(root, 'dist/client');
 
-const { render, renderNotFound } = await import(path.join(root, 'dist/server/entry-server.js'));
+const { render, renderNotFound, structuredData } = await import(path.join(root, 'dist/server/entry-server.js'));
 
 // The English page is written back over dist/client/index.html, which is also
 // where the template comes from -- so the untouched template is kept aside,
@@ -77,7 +77,11 @@ async function write(locale, fileName, html) {
 }
 
 for (const locale of locales) {
-  await write(locale, 'index.html', fill(template, locale, await headFor(locale), render(locale)));
+  const head = `${await headFor(locale)}
+
+    <script type="application/ld+json">${structuredData(locale)}</script>`;
+
+  await write(locale, 'index.html', fill(template, locale, head, render(locale)));
 
   // wrangler.jsonc serves the nearest 404.html with a 404 status, so anything
   // under /zh/ that does not exist gets the Chinese page.

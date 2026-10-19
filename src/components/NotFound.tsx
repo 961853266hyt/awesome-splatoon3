@@ -18,7 +18,7 @@ export function NotFound({ locale }: NotFoundProps) {
   return (
     <div className="app-shell">
       <header className="site-header">
-        <nav className="topbar" aria-label="Primary navigation">
+        <nav className="topbar" aria-label={dictionary.navLabel}>
           <a className="brand" href={home}>
             Awesome Splatoon3
           </a>

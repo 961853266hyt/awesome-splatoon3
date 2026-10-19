@@ -6,6 +6,8 @@ import { App } from './App';
 import { NotFound } from './components/NotFound';
 import type { Locale } from './data/resources.generated';
 
+export { structuredData } from './structuredData';
+
 export function render(locale: Locale): string {
   return renderToString(<App locale={locale} />);
 }

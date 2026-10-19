@@ -200,16 +200,16 @@ export function App({ locale }: AppProps) {
       </section>
 
       {filteredResources.length > 0 ? (
-        <section className="resource-grid" aria-label="Resources">
+        <section className="resource-grid" aria-label={dictionary.resourcesHeading}>
           {filteredResources.map((resource) => {
             const category = categoryMap.get(resource.categoryId);
 
             return (
               <Card className="resource-card" key={resource.id}>
                 <span className="resource-category">{category?.title[locale] ?? resource.categoryId}</span>
-                <h2>
+                <h3>
                   <a href={resource.url}>{resource.name[locale]}</a>
-                </h2>
+                </h3>
                 <p>{resource.description[locale]}</p>
                 <a className="resource-domain" href={resource.url} aria-label={resource.name[locale]}>
                   {getDomain(resource.url)}
@@ -244,9 +244,9 @@ export function App({ locale }: AppProps) {
           markup -- mount them only after hydration. Purely decorative. */}
       {mounted && <FallingLeaves />}
       <header className="site-header">
-        <nav className="topbar" aria-label="Primary navigation">
+        <nav className="topbar" aria-label={dictionary.navLabel}>
           <div className="topbar-brand">
-            <a className="brand" href={localePath[locale]} aria-label="Awesome Splatoon3 home">
+            <a className="brand" href={localePath[locale]} aria-label={dictionary.homeLabel}>
               Awesome Splatoon3
             </a>
             <Button
@@ -328,9 +328,12 @@ export function App({ locale }: AppProps) {
       />
 
       <main className="content" id="resources">
+        {/* Names the section the resource cards (h3) belong to; the tabs already
+            label it visually. */}
+        <h2 className="visually-hidden">{dictionary.resourcesHeading}</h2>
         <Tabs
           className="category-tabs"
-          aria-label="Categories"
+          aria-label={dictionary.categoriesLabel}
           activeKey={selectedCategory}
           onChange={setSelectedCategory}
           items={tabItems}

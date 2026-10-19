@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -206,6 +207,25 @@ const alternateLinks = [
   `    <xhtml:link rel="alternate" hreflang="x-default" href="${localeUrl('en')}" />`,
 ].join('\n');
 
+// <lastmod> is the date of the last commit touching what the pages are built
+// from, so it only moves when the content does. Left out when git history is
+// unavailable (e.g. a tarball build) rather than guessed.
+function lastModified() {
+  try {
+    const date = execFileSync(
+      'git',
+      ['log', '-1', '--format=%cs', '--', 'README.md', 'README.zh-CN.md', 'src/i18n'],
+      { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    ).trim();
+
+    return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : null;
+  } catch {
+    return null;
+  }
+}
+
+const lastmod = lastModified();
+
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -214,7 +234,7 @@ const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 ${locales
   .map(
     (locale) => `  <url>
-    <loc>${localeUrl(locale)}</loc>
+    <loc>${localeUrl(locale)}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}
 ${alternateLinks}
   </url>`,
   )

@@ -43,6 +43,10 @@
     "notFoundTitle": "Page not found — Awesome Splatoon 3",
     "notFoundHeading": "Page not found",
     "notFoundLead": "The page you're looking for doesn't exist or has moved.",
-    "notFoundHome": "Back to all resources"
+    "notFoundHome": "Back to all resources",
+    "navLabel": "Primary navigation",
+    "homeLabel": "Awesome Splatoon3 home",
+    "resourcesHeading": "All Splatoon 3 resources",
+    "categoriesLabel": "Categories"
   }
 }

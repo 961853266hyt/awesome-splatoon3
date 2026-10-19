@@ -23,6 +23,19 @@ a {
   color: inherit;
 }
 
+/* Read by screen readers and crawlers, not drawn on screen. */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 button,
 input,
 select {
@@ -258,17 +271,17 @@ select {
   font-weight: 800;
 }
 
-.resource-card h2 {
+.resource-card h3 {
   font-size: 20px;
   line-height: 1.3;
   margin: var(--animal-spacing-lg) 0 var(--animal-spacing-sm);
 }
 
-.resource-card h2 a {
+.resource-card h3 a {
   text-decoration: none;
 }
 
-.resource-card h2 a:hover {
+.resource-card h3 a:hover {
   color: var(--animal-primary-color);
   text-decoration: underline;
 }

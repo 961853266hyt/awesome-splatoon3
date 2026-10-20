@@ -166,6 +166,20 @@
         ]
       }
     },
-    "faqTitle": "Frequently asked questions"
+    "faqTitle": "Frequently asked questions",
+    "homeFaq": [
+      {
+        "question": "What is Awesome Splatoon3?",
+        "answer": "A community-curated, searchable list of Splatoon 3 resources in English and Chinese: official links, wikis, tools, developer resources, assets, apps and bots."
+      },
+      {
+        "question": "How do I see my Splatoon 3 battle history on my phone?",
+        "answer": "Nintendo's Nintendo Switch App (formerly the Nintendo Switch Online app) links up with Splatoon 3 through SplatNet 3, where you can look back at your battles and Salmon Run shifts. To keep and chart them long-term, see stat.ink under Tools and Conch Bay under Apps."
+      },
+      {
+        "question": "How can I suggest a resource?",
+        "answer": "Press Contribute at the top of the page and fill in the form. It opens a pre-filled GitHub issue for you."
+      }
+    ]
   }
 }

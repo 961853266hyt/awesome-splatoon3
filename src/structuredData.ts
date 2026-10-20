@@ -16,6 +16,7 @@ export function structuredData(locale: Locale, categoryId?: string): string {
   const pageCopy = category && categoryPageCopy(locale, category);
   const pageUrl = category ? `${__SITE_URL__}${categoryPath(locale, category.id)}` : homeUrl;
   const listed = category ? resources.filter((resource) => resource.categoryId === category.id) : resources;
+  const faq = pageCopy ? pageCopy.faq : dictionary.homeFaq;
 
   const graph = {
     '@context': 'https://schema.org',
@@ -60,14 +61,14 @@ export function structuredData(locale: Locale, categoryId?: string): string {
         },
       },
       // The Q&A shown on the page, so engines that read FAQ markup can use it.
-      ...(pageCopy && pageCopy.faq.length > 0
+      ...(faq.length > 0
         ? [
             {
               '@type': 'FAQPage',
               '@id': `${pageUrl}#faq`,
               url: pageUrl,
               inLanguage: localeTag[locale],
-              mainEntity: pageCopy.faq.map((item) => ({
+              mainEntity: faq.map((item) => ({
                 '@type': 'Question',
                 name: item.question,
                 acceptedAnswer: { '@type': 'Answer', text: item.answer },

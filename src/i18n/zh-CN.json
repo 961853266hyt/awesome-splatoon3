@@ -166,6 +166,20 @@
         ]
       }
     },
-    "faqTitle": "常见问题"
+    "faqTitle": "常见问题",
+    "homeFaq": [
+      {
+        "question": "斯普拉遁 3 和喷射战士 3 是同一个游戏吗？",
+        "answer": "是同一个游戏。《斯普拉遁 3》是任天堂香港使用的官方中文名，“喷射战士 3”是很多玩家习惯的叫法；英文名是 Splatoon 3，日文名是《スプラトゥーン3》。"
+      },
+      {
+        "question": "手机上怎么看斯普拉遁 3 的战绩？",
+        "answer": "任天堂官方的 Nintendo Switch App（原 Nintendo Switch Online 应用）提供斯普拉遁 3 的游戏连动服务“鱿鱼圈 3”（SplatNet 3），可以查看对战和打工记录。想长期保存和统计战绩，可以看工具分类里的 stat.ink 和应用分类里的 Conch Bay。"
+      },
+      {
+        "question": "怎么推荐新资源？",
+        "answer": "点页面顶部的“贡献”按钮，填写资源名称、链接和描述，会自动帮你创建一个 GitHub issue。"
+      }
+    ]
   }
 }

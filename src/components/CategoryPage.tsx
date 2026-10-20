@@ -34,14 +34,17 @@ export function CategoryIntro({ locale, category, pageCopy }: CategoryIntroProps
   );
 }
 
-export interface CategoryFaqProps {
+export interface FaqProps {
   locale: Locale;
-  pageCopy: CategoryPageCopy;
+  items: CategoryPageCopy['faq'];
 }
 
-/** Short Q&A answering the questions people search for about this category. */
-export function CategoryFaq({ locale, pageCopy }: CategoryFaqProps) {
-  if (pageCopy.faq.length === 0) {
+/**
+ * Short Q&A answering the questions people search for, on the home page and
+ * on category pages.
+ */
+export function Faq({ locale, items }: FaqProps) {
+  if (items.length === 0) {
     return null;
   }
 
@@ -49,7 +52,7 @@ export function CategoryFaq({ locale, pageCopy }: CategoryFaqProps) {
     <section className="category-section category-faq" aria-labelledby="category-faq-title">
       <Card className="category-card">
         <h2 id="category-faq-title">{copy[locale].faqTitle}</h2>
-        {pageCopy.faq.map((item) => (
+        {items.map((item) => (
           <div className="category-faq-item" key={item.question}>
             <h3>{item.question}</h3>
             <p>{item.answer}</p>

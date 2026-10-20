@@ -86,6 +86,18 @@
         "description": "Fan-made Splatoon 3 apps: Conch Bay for schedules and battle stats on iOS and Android, squid desktop pets, and a free real-time Inkling voice changer.",
         "heading": "Splatoon 3 apps",
         "intro": "Fan-made apps for phone and desktop: check schedules and battle statistics, keep a squid pet on your screen, or talk like an Inkling or Octoling."
+      },
+      "official": {
+        "title": "Official Splatoon 3 Websites and Accounts",
+        "description": "Official Splatoon 3 links from Nintendo: the English, Japanese and Hong Kong (Chinese) official websites and the official SplatoonJP account on X.",
+        "heading": "Official Splatoon 3 links",
+        "intro": "Nintendo's own Splatoon 3 websites in English, Japanese and Chinese, plus the official account that posts news and announcements."
+      },
+      "bots": {
+        "title": "Splatoon 3 Bots: Schedules, Splatfests & Player Stats",
+        "description": "Splatoon 3 bots for Discord, QQ, Telegram and KOOK: look up battle and Salmon Run schedules, Splatfests and player stats, or follow a schedule feed on X.",
+        "heading": "Splatoon 3 bots",
+        "intro": "Add schedule and stats lookups to your Discord, QQ, Telegram or KOOK group, or follow an account that posts every rotation."
       }
     }
   }

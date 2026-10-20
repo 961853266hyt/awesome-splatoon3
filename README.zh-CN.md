@@ -28,6 +28,8 @@
 
 - [Splatoon 3 Official Site](https://splatoon.nintendo.com/) - 斯普拉遁 3 的 任天堂官方网站。
 - [SplatoonJP](https://x.com/SplatoonJP) - 斯普拉遁官方日文 X 账号。
+- [Splatoon 3 Japanese Official Site](https://www.nintendo.co.jp/switch/av5ja/) - 任天堂日本的斯普拉遁 3 官方网站。
+- [Splatoon 3 Hong Kong Official Site](https://www.nintendo.com/hk/switch/av5ja/) - 任天堂香港的斯普拉遁 3 中文官方网站。
 
 ## 非官方链接
 
@@ -85,6 +87,7 @@
 
 - [paul-sama/splatoon3-bot](https://github.com/paul-sama/splatoon3-bot) - Splatoon 3 机器人，可查询比赛中遇到的玩家数据，支持 KOOK、Telegram 和 Discord。
 - [小鱿鱿bot](https://github.com/Cypas/splatoon3-schedule) - 基于 NoneBot2 的插件，可查询对战、打工、活动和祭典日程，支持 OneBot、Telegram、KOOK、QQ 和 Discord。
+- [splatoon3.ink on X](https://x.com/splatoon3ink) - splatoon3.ink 的自动推送账号，发布斯普拉遁 3 地图轮换、打工（鲑鱼跑）日程和鱿鱼圈装备。
 
 ## 贡献
 

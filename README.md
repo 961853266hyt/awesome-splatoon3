@@ -28,6 +28,8 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 
 - [Splatoon 3 Official Site](https://splatoon.nintendo.com/) - Official Nintendo site for Splatoon 3.
 - [SplatoonJP](https://x.com/SplatoonJP) - Official Japanese Splatoon account on X.
+- [Splatoon 3 Japanese Official Site](https://www.nintendo.co.jp/switch/av5ja/) - Official Nintendo Japan site for Splatoon 3.
+- [Splatoon 3 Hong Kong Official Site](https://www.nintendo.com/hk/switch/av5ja/) - Official Nintendo Hong Kong site for Splatoon 3, in Chinese.
 
 ## Unofficial Links
 
@@ -85,6 +87,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 
 - [paul-sama/splatoon3-bot](https://github.com/paul-sama/splatoon3-bot) - Splatoon 3 bot for looking up stats of players encountered in matches, with support for KOOK, Telegram, and Discord.
 - [Cypas/splatoon3-schedule](https://github.com/Cypas/splatoon3-schedule) - NoneBot2 plugin (Xiao You You Bot) for querying Splatoon 3 schedules for battles, Salmon Run, events, and Splatfests, with support for OneBot, Telegram, KOOK, QQ, and Discord.
+- [splatoon3.ink on X](https://x.com/splatoon3ink) - Automated account from splatoon3.ink that posts Splatoon 3 map rotations, Salmon Run schedules, and SplatNet gear.
 
 ## Contributing
 

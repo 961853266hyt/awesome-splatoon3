@@ -59,6 +59,22 @@ export function structuredData(locale: Locale, categoryId?: string): string {
           })),
         },
       },
+      // The Q&A shown on the page, so engines that read FAQ markup can use it.
+      ...(pageCopy && pageCopy.faq.length > 0
+        ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${pageUrl}#faq`,
+              url: pageUrl,
+              inLanguage: localeTag[locale],
+              mainEntity: pageCopy.faq.map((item) => ({
+                '@type': 'Question',
+                name: item.question,
+                acceptedAnswer: { '@type': 'Answer', text: item.answer },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 

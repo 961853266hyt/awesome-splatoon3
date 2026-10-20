@@ -51,6 +51,27 @@
   max-width: 46em;
 }
 
+.category-faq h2 {
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 0 var(--animal-spacing-sm);
+}
+
+.category-faq-item + .category-faq-item {
+  border-top: var(--animal-border-width) solid var(--animal-border-color-light);
+}
+
+.category-faq-item h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: var(--animal-spacing-lg) 0 var(--animal-spacing-xs);
+}
+
+.category-faq-item p {
+  line-height: 1.7;
+  margin: 0 0 var(--animal-spacing-lg);
+}
+
 .category-links h2 {
   font-size: 22px;
   font-weight: 900;

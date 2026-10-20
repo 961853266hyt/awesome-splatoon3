@@ -11,7 +11,7 @@ import { categoryPath, localePath, localeTag, locales } from './i18n/routing';
 import { fill } from './i18n/format';
 import { categoryPageCopy } from './categoryPages';
 import { Hero } from './components/Hero';
-import { CategoryIntro, CategoryLinks } from './components/CategoryPage';
+import { CategoryFaq, CategoryIntro, CategoryLinks } from './components/CategoryPage';
 
 const GITHUB_REPO = '961853266hyt/awesome-splatoon3';
 
@@ -371,6 +371,8 @@ export function App({ locale, categoryId }: AppProps) {
           </>
         )}
       </main>
+
+      {pageCopy && <CategoryFaq locale={locale} pageCopy={pageCopy} />}
 
       {pageCategory && (
         <CategoryLinks

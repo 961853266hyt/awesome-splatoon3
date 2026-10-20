@@ -61,44 +61,111 @@
         "title": "Splatoon 3 Wikis & Databases: Weapons, Gear and Lore",
         "description": "Splatoon 3 wikis and databases: Inkipedia, a datamined weapon and gear database, Chinese and Japanese strategy wikis, a lore archive and a resource directory.",
         "heading": "Splatoon 3 wikis and databases",
-        "intro": "Reference sites for weapons, gear, abilities, stages and modes, a datamined stats database, strategy wikis in Chinese and Japanese, and an archive of Splatoon lore."
+        "intro": "Reference sites for weapons, gear, abilities, stages and modes, a datamined stats database, strategy wikis in Chinese and Japanese, and an archive of Splatoon lore.",
+        "faq": [
+          {
+            "question": "What is the best Splatoon 3 wiki?",
+            "answer": "Inkipedia covers mechanics, weapons, gear, stages, modes and updates in English. For exact weapon and gear numbers, Leanny's database is built from datamined game files."
+          },
+          {
+            "question": "Is there a Splatoon 3 wiki in Chinese or Japanese?",
+            "answer": "Ikanimo (splatoon.com.cn) is a Chinese information, guide and data site, and the wikiwiki.jp Splatoon 3 wiki covers strategy and mechanics verification in Japanese."
+          }
+        ]
       },
       "tools": {
         "title": "Splatoon 3 Tools: Builds, Schedules & Battle Stats",
         "description": "Splatoon 3 tools for gear builds, tournaments, battle and Salmon Run schedules, calendar feeds, battle stats, replay analysis and top-player VOD databases.",
         "heading": "Splatoon 3 tools",
-        "intro": "Websites the community uses to plan gear builds, check the current battle and Salmon Run schedules, track battle results, analyze replays and study top players' matches."
+        "intro": "Websites the community uses to plan gear builds, check the current battle and Salmon Run schedules, track battle results, analyze replays and study top players' matches.",
+        "faq": [
+          {
+            "question": "Where can I find Splatoon 3 gear builds?",
+            "answer": "sendou.ink collects builds from top players alongside its tournaments and seasonal ladder, and the Splatoon 3 Weapon Analyzer breaks down weapon and build data."
+          },
+          {
+            "question": "How do I check the current Splatoon 3 schedule?",
+            "answer": "splatoon3.ink shows the current battle rotations and Salmon Run schedule, and Splatoon 3 Calendars turns battle, Salmon Run and event schedules into a calendar feed you can subscribe to."
+          },
+          {
+            "question": "How can I track my Splatoon 3 battle stats?",
+            "answer": "stat.ink records and charts your battle results over time, and Inksight analyzes replays for match data and player stats."
+          }
+        ]
       },
       "development": {
         "title": "Splatoon 3 Developer Tools: SplatNet 3 APIs & Libraries",
         "description": "Open-source Splatoon 3 developer resources: SplatNet 3 API clients, a command-line uploader for stat.ink, and a Splatoon-inspired React component library.",
         "heading": "Splatoon 3 developer resources",
-        "intro": "Open-source projects for building on Splatoon 3: clients for the Nintendo Switch Online and SplatNet 3 APIs, a battle-data exporter for stat.ink, and UI components."
+        "intro": "Open-source projects for building on Splatoon 3: clients for the Nintendo Switch Online and SplatNet 3 APIs, a battle-data exporter for stat.ink, and UI components.",
+        "faq": [
+          {
+            "question": "How do I get my Splatoon 3 data out of SplatNet 3?",
+            "answer": "s3s is a command-line tool that takes battle data from SplatNet 3 and uploads it to stat.ink. nxapi is an API client and desktop app for the Nintendo Switch Online app that can also access SplatNet 3 data."
+          }
+        ]
       },
       "assets": {
         "title": "Splatoon 3 Assets: Fonts, Models, Sprites & Cursors",
         "description": "Splatoon 3 fan assets: Inkling-language fonts and cipher charts, 3D models and sprites, cursor packs, Octo Expansion fonts, music archives and outfit catalogs.",
         "heading": "Splatoon 3 assets",
-        "intro": "Fonts, models and textures, cursor packs, music and outfit references for fan art, mods and designs."
+        "intro": "Fonts, models and textures, cursor packs, music and outfit references for fan art, mods and designs.",
+        "faq": [
+          {
+            "question": "Where can I download Splatoon 3 models and textures?",
+            "answer": "The Models Resource and The Spriters Resource both host Splatoon 3 model, sprite and texture rips."
+          },
+          {
+            "question": "Is there a font for the Inkling language?",
+            "answer": "decipher.ink offers Splatoon script fonts and cipher charts, plus a generator that renders in-universe glyph images."
+          }
+        ]
       },
       "apps": {
         "title": "Splatoon 3 Apps: Battle Stats, Desktop Pets & More",
         "description": "Fan-made Splatoon 3 apps: Conch Bay for schedules and battle stats on iOS and Android, squid desktop pets, and a free real-time Inkling voice changer.",
         "heading": "Splatoon 3 apps",
-        "intro": "Fan-made apps for phone and desktop: check schedules and battle statistics, keep a squid pet on your screen, or talk like an Inkling or Octoling."
+        "intro": "Fan-made apps for phone and desktop: check schedules and battle statistics, keep a squid pet on your screen, or talk like an Inkling or Octoling.",
+        "faq": [
+          {
+            "question": "Is there an app to check Splatoon 3 schedules and battle stats?",
+            "answer": "Conch Bay is a cross-platform app for iOS and Android that shows Splatoon 3 schedules and battle statistics."
+          },
+          {
+            "question": "Is there a Splatoon desktop pet?",
+            "answer": "memesquid and little squid pet are squid desktop pets; little squid pet can also recognize wins and losses and react to live chat."
+          }
+        ]
       },
       "official": {
         "title": "Official Splatoon 3 Websites and Accounts",
         "description": "Official Splatoon 3 links from Nintendo: the English, Japanese and Hong Kong (Chinese) official websites and the official SplatoonJP account on X.",
         "heading": "Official Splatoon 3 links",
-        "intro": "Nintendo's own Splatoon 3 websites in English, Japanese and Chinese, plus the official account that posts news and announcements."
+        "intro": "Nintendo's own Splatoon 3 websites in English, Japanese and Chinese, plus the official account that posts news and announcements.",
+        "faq": [
+          {
+            "question": "Where is the official Splatoon 3 website?",
+            "answer": "Nintendo runs the English site at splatoon.nintendo.com, a Japanese site on Nintendo Japan, and a Chinese-language site on Nintendo Hong Kong. News and announcements are also posted by the official SplatoonJP account on X."
+          }
+        ]
       },
       "bots": {
         "title": "Splatoon 3 Bots: Schedules, Splatfests & Player Stats",
         "description": "Splatoon 3 bots for Discord, QQ, Telegram and KOOK: look up battle and Salmon Run schedules, Splatfests and player stats, or follow a schedule feed on X.",
         "heading": "Splatoon 3 bots",
-        "intro": "Add schedule and stats lookups to your Discord, QQ, Telegram or KOOK group, or follow an account that posts every rotation."
+        "intro": "Add schedule and stats lookups to your Discord, QQ, Telegram or KOOK group, or follow an account that posts every rotation.",
+        "faq": [
+          {
+            "question": "Is there a bot that posts Splatoon 3 schedules?",
+            "answer": "The splatoon3.ink account on X posts map rotations, Salmon Run schedules and SplatNet gear automatically. For a group chat, the splatoon3-schedule NoneBot2 plugin answers schedule queries on QQ, OneBot, Telegram, KOOK and Discord."
+          },
+          {
+            "question": "Can a bot look up the players I met in a match?",
+            "answer": "paul-sama/splatoon3-bot looks up stats of players encountered in matches, on KOOK, Telegram and Discord."
+          }
+        ]
       }
-    }
+    },
+    "faqTitle": "Frequently asked questions"
   }
 }

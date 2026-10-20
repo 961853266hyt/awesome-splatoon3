@@ -1,4 +1,5 @@
-# Vite puts a content hash in every filename under /assets/, so a file there
-# never changes once deployed and browsers can keep it for a year.
-/assets/*
+# Vite puts a content hash in every filename under /static/ (build.assetsDir
+# in vite.config.ts), so a file there never changes once deployed and
+# browsers can keep it for a year.
+/static/*
   Cache-Control: public, max-age=31536000, immutable

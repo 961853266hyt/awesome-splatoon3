@@ -47,6 +47,46 @@
     "navLabel": "主导航",
     "homeLabel": "Awesome Splatoon3 首页",
     "resourcesHeading": "斯普拉遁 3 全部资源",
-    "categoriesLabel": "分类"
+    "categoriesLabel": "分类",
+    "breadcrumbLabel": "面包屑导航",
+    "breadcrumbHome": "首页",
+    "categoryResourcesHeading": "Awesome Splatoon3 收录的{category}",
+    "moreCategoriesTitle": "更多斯普拉遁 3 资源",
+    "allResourcesLink": "全部 {count} 个资源",
+    "categoryPageTitle": "斯普拉遁 3 {category} — Awesome Splatoon3",
+    "categoryPageDescription": "社区精选的斯普拉遁 3（喷射战士 3）{category}资源。",
+    "categoryPageIntro": "社区精选的斯普拉遁 3 {category}资源。",
+    "categoryPages": {
+      "wiki": {
+        "title": "斯普拉遁 3 Wiki 与资料站：武器图鉴、装备数据与攻略",
+        "description": "斯普拉遁 3（喷射战士 3）Wiki 与资料站合集：Inkipedia 百科、武器与装备解包数据库、Ikanimo 中文资料站、日文攻略 Wiki 和世界观设定资料。",
+        "heading": "斯普拉遁 3 Wiki 与资料站",
+        "intro": "查武器、装备、技能、场地和模式资料，翻解包数据，看中文和日文攻略，或者了解斯普拉遁的世界观设定，从这里开始。"
+      },
+      "tools": {
+        "title": "斯普拉遁 3 工具：配装网站、日程查询与战绩统计",
+        "description": "精选斯普拉遁 3（喷射战士 3）实用工具：sendou.ink 配装与比赛、对战和打工（鲑鱼跑）日程查询、日程日历订阅、stat.ink 战绩统计、对战录像分析和高手视频库。",
+        "heading": "斯普拉遁 3 工具",
+        "intro": "玩家常用的网站：查配装、看当前对战和打工日程、记录战绩、分析对战录像、找高手对战视频，一页看全。"
+      },
+      "development": {
+        "title": "斯普拉遁 3 开发资源：鱿鱼圈 API、开源工具与组件库",
+        "description": "斯普拉遁 3（喷射战士 3）开源开发资源：鱿鱼圈 3（SplatNet 3）API 客户端、把对战数据上传到 stat.ink 的命令行工具，以及斯普拉遁风格的 React 组件库。",
+        "heading": "斯普拉遁 3 开发资源",
+        "intro": "想基于斯普拉遁 3 做点东西？这里有任天堂 Switch Online 与鱿鱼圈 3 的 API 客户端、对战数据导出工具和界面组件库，全部开源。"
+      },
+      "assets": {
+        "title": "斯普拉遁 3 素材：字体、模型、贴图与鼠标指针",
+        "description": "斯普拉遁 3（喷射战士 3）素材合集：鱿鱼文字体与对照表、游戏 3D 模型和贴图、鼠标指针包、章鱼扩展字体复刻、音乐存档和玩家装备搭配图鉴。",
+        "heading": "斯普拉遁 3 素材",
+        "intro": "画同人图、做模组或设计周边时用得上的字体、模型、贴图、鼠标指针、音乐和装备搭配参考。"
+      },
+      "apps": {
+        "title": "斯普拉遁 3 应用：战绩查询、日程与鱿鱼桌宠",
+        "description": "斯普拉遁 3（喷射战士 3）同人应用合集：Conch Bay 手机查日程和战绩（iOS / Android）、能识别输赢的小鱿鱼桌面宠物，以及免费的鱿鱼、章鱼实时变声器。",
+        "heading": "斯普拉遁 3 应用",
+        "intro": "手机和电脑上的同人应用：查日程和战绩、在桌面养一只小鱿鱼，或者用鱿鱼、章鱼的声音聊天。"
+      }
+    }
   }
 }

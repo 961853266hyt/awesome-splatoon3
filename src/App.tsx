@@ -2,13 +2,16 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Fuse from 'fuse.js';
 import { Button, Card, Form, Input, Modal, Tabs, Wallet } from 'animal-island-ui';
 import { FaSearch } from 'react-icons/fa';
-import { categories, resources, type Locale } from './data/resources.generated';
+import { categories, categoryPageIds, resources, type Locale } from './data/resources.generated';
 import { Footer } from 'animal-island-ui';
 import { FallingLeaves } from './components/FallingLeaves';
 import { copy } from './i18n';
 import { useMounted } from './useMounted';
-import { localePath, localeTag, locales } from './i18n/routing';
+import { categoryPath, localePath, localeTag, locales } from './i18n/routing';
+import { fill } from './i18n/format';
+import { categoryPageCopy } from './categoryPages';
 import { Hero } from './components/Hero';
+import { CategoryIntro, CategoryLinks } from './components/CategoryPage';
 
 const GITHUB_REPO = '961853266hyt/awesome-splatoon3';
 
@@ -23,15 +26,18 @@ function getDomain(url: string) {
 export interface AppProps {
   /** Locale this page is being rendered for, derived from the URL path. */
   locale: Locale;
+  /** Set when rendering a category landing page (/tools/); omitted on the home page. */
+  categoryId?: string;
 }
 
-export function App({ locale }: AppProps) {
+export function App({ locale, categoryId }: AppProps) {
   // Every piece of state below starts at its default rather than reading the
   // URL, so the first client render matches the prerendered HTML exactly.
   // Anything URL- or browser-dependent waits for `mounted`.
   const mounted = useMounted();
   const [query, setQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  // A category page is pinned to its category; the home page starts on "all".
+  const [selectedCategory, setSelectedCategory] = useState(categoryId ?? 'all');
   const [stars, setStars] = useState<number | undefined>(undefined);
   const [contributeOpen, setContributeOpen] = useState(false);
   const [contributeForm] = Form.useForm();
@@ -57,10 +63,17 @@ export function App({ locale }: AppProps) {
     document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const jumpToCategory = (categoryId: string) => {
-    setSelectedCategory(categoryId);
+  const jumpToCategory = (id: string) => {
+    setSelectedCategory(id);
     scrollToResources();
   };
+
+  const pageCategory = categoryId === undefined ? undefined : categoryMap.get(categoryId);
+  const pageCopy = pageCategory && categoryPageCopy(locale, pageCategory);
+
+  /** Category card target on the home page: the landing page when there is one. */
+  const categoryHref = (id: string) =>
+    categoryPageIds.includes(id) ? categoryPath(locale, id) : `${localePath[locale]}?category=${id}`;
 
   const closeContribute = () => {
     setContributeOpen(false);
@@ -127,7 +140,8 @@ export function App({ locale }: AppProps) {
     const params = new URLSearchParams(window.location.search);
     const category = params.get('category');
 
-    if (category && categories.some((item) => item.id === category)) {
+    // A category page is already pinned to its own category.
+    if (!categoryId && category && categories.some((item) => item.id === category)) {
       setSelectedCategory(category);
     }
 
@@ -152,7 +166,8 @@ export function App({ locale }: AppProps) {
       params.set('q', query.trim());
     }
 
-    if (selectedCategory !== 'all') {
+    // On a category page the category is the path itself, not a parameter.
+    if (!categoryId && selectedCategory !== 'all') {
       params.set('category', selectedCategory);
     }
 
@@ -160,7 +175,7 @@ export function App({ locale }: AppProps) {
       ? `${window.location.pathname}?${params}`
       : window.location.pathname;
     window.history.replaceState(null, '', nextUrl);
-  }, [mounted, query, selectedCategory]);
+  }, [mounted, query, selectedCategory, categoryId]);
 
   useEffect(() => {
     const handleShortcut = (event: KeyboardEvent) => {
@@ -284,7 +299,7 @@ export function App({ locale }: AppProps) {
                 other language version, and it keeps the locale in the URL. */}
             <a
               className="button-link language-link"
-              href={localePath[otherLocale]}
+              href={categoryId ? categoryPath(otherLocale, categoryId) : localePath[otherLocale]}
               hrefLang={localeTag[otherLocale]}
               lang={localeTag[otherLocale]}
             >
@@ -304,41 +319,67 @@ export function App({ locale }: AppProps) {
         </nav>
       </header>
 
-      <Hero
-        locale={locale}
-        copy={{
-          headline: dictionary.heroHeadline,
-          lead: dictionary.heroLead,
-          browse: dictionary.heroBrowse,
-          source: dictionary.heroSource,
-          proof: dictionary.heroProof,
-          proofNoStars: dictionary.heroProofNoStars,
-          proofStars: dictionary.heroProofStars,
-          exploreTitle: dictionary.heroExploreTitle,
-          exploreHint: dictionary.heroExploreHint,
-          islandTime: dictionary.heroIslandTime,
-        }}
-        categories={categories}
-        counts={categoryCounts}
-        totalResources={resources.length}
-        stars={stars}
-        githubUrl={`https://github.com/${GITHUB_REPO}`}
-        onBrowse={scrollToResources}
-        onSelectCategory={jumpToCategory}
-      />
+      {pageCategory && pageCopy ? (
+        <CategoryIntro locale={locale} category={pageCategory} pageCopy={pageCopy} />
+      ) : (
+        <Hero
+          locale={locale}
+          copy={{
+            headline: dictionary.heroHeadline,
+            lead: dictionary.heroLead,
+            browse: dictionary.heroBrowse,
+            source: dictionary.heroSource,
+            proof: dictionary.heroProof,
+            proofNoStars: dictionary.heroProofNoStars,
+            proofStars: dictionary.heroProofStars,
+            exploreTitle: dictionary.heroExploreTitle,
+            exploreHint: dictionary.heroExploreHint,
+            islandTime: dictionary.heroIslandTime,
+          }}
+          categories={categories}
+          counts={categoryCounts}
+          totalResources={resources.length}
+          stars={stars}
+          githubUrl={`https://github.com/${GITHUB_REPO}`}
+          categoryHref={categoryHref}
+          onBrowse={scrollToResources}
+          onSelectCategory={jumpToCategory}
+        />
+      )}
 
       <main className="content" id="resources">
-        {/* Names the section the resource cards (h3) belong to; the tabs already
-            label it visually. */}
-        <h2 className="visually-hidden">{dictionary.resourcesHeading}</h2>
-        <Tabs
-          className="category-tabs"
-          aria-label={dictionary.categoriesLabel}
-          activeKey={selectedCategory}
-          onChange={setSelectedCategory}
-          items={tabItems}
-        />
+        {pageCategory ? (
+          <>
+            {/* The page's h1 is in the intro; this names the list the cards (h3) belong to. */}
+            <h2 className="visually-hidden">
+              {fill(dictionary.categoryResourcesHeading, { category: pageCategory.title[locale] })}
+            </h2>
+            {resultsContent}
+          </>
+        ) : (
+          <>
+            {/* Names the section the resource cards (h3) belong to; the tabs already
+                label it visually. */}
+            <h2 className="visually-hidden">{dictionary.resourcesHeading}</h2>
+            <Tabs
+              className="category-tabs"
+              aria-label={dictionary.categoriesLabel}
+              activeKey={selectedCategory}
+              onChange={setSelectedCategory}
+              items={tabItems}
+            />
+          </>
+        )}
       </main>
+
+      {pageCategory && (
+        <CategoryLinks
+          locale={locale}
+          categories={categories}
+          currentId={pageCategory.id}
+          totalResources={resources.length}
+        />
+      )}
 
       <section className="final-cta" aria-labelledby="final-cta-title">
         <Card className="final-cta-card" color="app-yellow">

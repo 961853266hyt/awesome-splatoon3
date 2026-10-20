@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import wandIcon from 'animal-island-ui/items/item-001.png';
 import fishIcon from 'animal-island-ui/items/item-150.png';
 import type { Category, Locale } from '../data/resources.generated';
+import { fill } from '../i18n/format';
 import { useMounted } from '../useMounted';
 import './Hero.css';
 
@@ -32,6 +33,8 @@ export interface HeroProps {
   totalResources: number;
   stars?: number;
   githubUrl: string;
+  /** Where a category card links to: its landing page, or the filtered home page. */
+  categoryHref: (categoryId: string) => string;
   onBrowse: () => void;
   onSelectCategory: (categoryId: string) => void;
 }
@@ -58,12 +61,6 @@ const CATEGORY_COLORS = [
   'lime-green',
 ] as const;
 
-function fill(template: string, values: Record<string, string | number>) {
-  return template.replace(/\{(\w+)\}/g, (match, key: string) =>
-    key in values ? String(values[key]) : match,
-  );
-}
-
 export function Hero({
   locale,
   copy,
@@ -72,6 +69,7 @@ export function Hero({
   totalResources,
   stars,
   githubUrl,
+  categoryHref,
   onBrowse,
   onSelectCategory,
 }: HeroProps) {
@@ -150,25 +148,27 @@ export function Hero({
 
         <div className="explore-grid">
           {categories.map((category, index) => (
-            <Card
+            <a
               key={category.id}
-              className="explore-card"
-              color={CATEGORY_COLORS[index % CATEGORY_COLORS.length]}
-              hoverable
-              role="button"
-              tabIndex={0}
-              onClick={() => onSelectCategory(category.id)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault();
-                  onSelectCategory(category.id);
+              className="explore-card-link"
+              href={categoryHref(category.id)}
+              onClick={(event) => {
+                // A plain click filters the list below in place. The href is
+                // for crawlers and for opening the category in a new tab.
+                if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                  return;
                 }
+
+                event.preventDefault();
+                onSelectCategory(category.id);
               }}
             >
-              <Icon name={CATEGORY_ICONS[category.id] ?? 'icon-miles'} size={40} />
-              <span className="explore-card-title">{category.title[locale]}</span>
-              <span className="explore-card-count">{counts.get(category.id) ?? 0}</span>
-            </Card>
+              <Card className="explore-card" color={CATEGORY_COLORS[index % CATEGORY_COLORS.length]} hoverable>
+                <Icon name={CATEGORY_ICONS[category.id] ?? 'icon-miles'} size={40} />
+                <span className="explore-card-title">{category.title[locale]}</span>
+                <span className="explore-card-count">{counts.get(category.id) ?? 0}</span>
+              </Card>
+            </a>
           ))}
         </div>
       </section>

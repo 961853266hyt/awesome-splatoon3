@@ -47,6 +47,46 @@
     "navLabel": "Primary navigation",
     "homeLabel": "Awesome Splatoon3 home",
     "resourcesHeading": "All Splatoon 3 resources",
-    "categoriesLabel": "Categories"
+    "categoriesLabel": "Categories",
+    "breadcrumbLabel": "Breadcrumb",
+    "breadcrumbHome": "Home",
+    "categoryResourcesHeading": "{category} on Awesome Splatoon3",
+    "moreCategoriesTitle": "More Splatoon 3 resources",
+    "allResourcesLink": "All {count} resources",
+    "categoryPageTitle": "Splatoon 3 {category} — Awesome Splatoon3",
+    "categoryPageDescription": "Hand-picked Splatoon 3 resources in the {category} category, maintained by the community.",
+    "categoryPageIntro": "Community-picked Splatoon 3 resources in the {category} category.",
+    "categoryPages": {
+      "wiki": {
+        "title": "Splatoon 3 Wikis & Databases: Weapons, Gear and Lore",
+        "description": "Splatoon 3 wikis and databases: Inkipedia, a datamined weapon and gear database, Chinese and Japanese strategy wikis, a lore archive and a resource directory.",
+        "heading": "Splatoon 3 wikis and databases",
+        "intro": "Reference sites for weapons, gear, abilities, stages and modes, a datamined stats database, strategy wikis in Chinese and Japanese, and an archive of Splatoon lore."
+      },
+      "tools": {
+        "title": "Splatoon 3 Tools: Builds, Schedules & Battle Stats",
+        "description": "Splatoon 3 tools for gear builds, tournaments, battle and Salmon Run schedules, calendar feeds, battle stats, replay analysis and top-player VOD databases.",
+        "heading": "Splatoon 3 tools",
+        "intro": "Websites the community uses to plan gear builds, check the current battle and Salmon Run schedules, track battle results, analyze replays and study top players' matches."
+      },
+      "development": {
+        "title": "Splatoon 3 Developer Tools: SplatNet 3 APIs & Libraries",
+        "description": "Open-source Splatoon 3 developer resources: SplatNet 3 API clients, a command-line uploader for stat.ink, and a Splatoon-inspired React component library.",
+        "heading": "Splatoon 3 developer resources",
+        "intro": "Open-source projects for building on Splatoon 3: clients for the Nintendo Switch Online and SplatNet 3 APIs, a battle-data exporter for stat.ink, and UI components."
+      },
+      "assets": {
+        "title": "Splatoon 3 Assets: Fonts, Models, Sprites & Cursors",
+        "description": "Splatoon 3 fan assets: Inkling-language fonts and cipher charts, 3D models and sprites, cursor packs, Octo Expansion fonts, music archives and outfit catalogs.",
+        "heading": "Splatoon 3 assets",
+        "intro": "Fonts, models and textures, cursor packs, music and outfit references for fan art, mods and designs."
+      },
+      "apps": {
+        "title": "Splatoon 3 Apps: Battle Stats, Desktop Pets & More",
+        "description": "Fan-made Splatoon 3 apps: Conch Bay for schedules and battle stats on iOS and Android, squid desktop pets, and a free real-time Inkling voice changer.",
+        "heading": "Splatoon 3 apps",
+        "intro": "Fan-made apps for phone and desktop: check schedules and battle statistics, keep a squid pet on your screen, or talk like an Inkling or Octoling."
+      }
+    }
   }
 }

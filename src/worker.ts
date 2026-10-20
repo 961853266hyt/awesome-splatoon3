@@ -7,7 +7,7 @@
 // Plain-HTTP requests on the custom domain are upgraded the same way.
 // Everything else falls through to the static assets.
 
-import { localePath } from './i18n/routing';
+import { pagePaths } from './i18n/routing';
 
 interface Env {
   ASSETS: { fetch(request: Request): Promise<Response> };
@@ -42,15 +42,11 @@ export default {
       return Response.redirect(`${url.origin}${pathname}${search ? `?${search}` : ''}`, 301);
     }
 
-    // A locale root without its trailing slash ("/zh") would otherwise get the
-    // asset layer's temporary (307) redirect; make it permanent so search
-    // engines settle on "/zh/".
-    const localeRoot = Object.values(localePath).find(
-      (path) => path !== '/' && url.pathname === path.slice(0, -1),
-    );
-
-    if (localeRoot) {
-      return Response.redirect(`${url.origin}${localeRoot}${url.search}`, 301);
+    // A page path without its trailing slash ("/zh", "/tools") would otherwise
+    // get the asset layer's temporary (307) redirect; make it permanent so
+    // search engines settle on the slashed URL.
+    if (!url.pathname.endsWith('/') && pagePaths.includes(`${url.pathname}/`)) {
+      return Response.redirect(`${url.origin}${url.pathname}/${url.search}`, 301);
     }
 
     return env.ASSETS.fetch(request);

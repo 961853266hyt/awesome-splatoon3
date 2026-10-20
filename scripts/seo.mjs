@@ -42,9 +42,12 @@ const messageFiles = {
   zhCN: 'src/i18n/zh-CN.json',
 };
 
-/** Absolute URL for a locale's home page. */
-export function localeUrl(locale) {
-  return `${SITE_URL}${localePath[locale]}`;
+/**
+ * Absolute URL for a page in a locale. `slug` is "" for the home page and
+ * "<category>/" for a category landing page.
+ */
+export function localeUrl(locale, slug = '') {
+  return `${SITE_URL}${localePath[locale]}${slug}`;
 }
 
 async function readMessages(locale) {
@@ -64,23 +67,28 @@ function escapeAttribute(value) {
  * hreflang annotations. Every locale lists every locale (including itself);
  * Google ignores one-sided annotations.
  */
-function alternates() {
+function alternates(slug) {
   const links = locales.map(
     (locale) =>
-      `    <link rel="alternate" hreflang="${localeTag[locale]}" href="${localeUrl(locale)}" />`,
+      `    <link rel="alternate" hreflang="${localeTag[locale]}" href="${localeUrl(locale, slug)}" />`,
   );
 
-  links.push(`    <link rel="alternate" hreflang="x-default" href="${localeUrl('en')}" />`);
+  links.push(`    <link rel="alternate" hreflang="x-default" href="${localeUrl('en', slug)}" />`);
 
   return links.join('\n');
 }
 
-/** The full locale-dependent <head> block for one locale. */
-export async function headFor(locale) {
+/**
+ * The full locale-dependent <head> block for one page. Without `page` it is
+ * the home page; category pages pass their slug ("tools/"), title and
+ * description.
+ */
+export async function headFor(locale, page = {}) {
   const messages = await readMessages(locale);
-  const title = escapeAttribute(messages.metaTitle);
-  const description = escapeAttribute(messages.metaDescription);
-  const url = localeUrl(locale);
+  const slug = page.slug ?? '';
+  const title = escapeAttribute(page.title ?? messages.metaTitle);
+  const description = escapeAttribute(page.description ?? messages.metaDescription);
+  const url = localeUrl(locale, slug);
   const image = `${SITE_URL}${ogImage[locale]}`;
 
   return `<title>${title}</title>
@@ -88,7 +96,7 @@ export async function headFor(locale) {
     <meta name="robots" content="index, follow" />
 
     <link rel="canonical" href="${url}" />
-${alternates()}
+${alternates(slug)}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Awesome Splatoon3" />

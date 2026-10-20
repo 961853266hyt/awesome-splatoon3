@@ -43,6 +43,9 @@ const dropCjkWebfont: PostcssPlugin = {
 
 export default defineConfig(({ isSsrBuild }) => ({
   base: '/',
+  // Hashed build output goes under /static/ rather than Vite's default
+  // /assets/, which is the URL of the Assets category landing page.
+  build: { assetsDir: 'static' },
   // The Cloudflare plugin builds the Worker bundle, which has nothing to do
   // with the prerender pass and errors out during an SSR build.
   plugins: [react(), ...(isSsrBuild ? [] : [cloudflare()]), seoHead],

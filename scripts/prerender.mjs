@@ -3,6 +3,8 @@
 // Runs after `vite build` (client) and `vite build --ssr` (server bundle):
 //   dist/client/index.html     -> English, rendered
 //   dist/client/zh/index.html  -> Chinese, rendered
+//   dist/client/<category>/index.html, dist/client/zh/<category>/index.html
+//                              -> category landing pages, both locales
 //   dist/client/404.html       -> English "page not found"
 //   dist/client/zh/404.html    -> Chinese "page not found"
 //
@@ -19,7 +21,7 @@ import { headFor, localePath, localeTag, locales, notFoundHeadFor } from './seo.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const clientDir = path.join(root, 'dist/client');
 
-const { render, renderNotFound, structuredData } = await import(path.join(root, 'dist/server/entry-server.js'));
+const { categoryHead, categoryPageIds, render, renderNotFound, structuredData } = await import(path.join(root, 'dist/server/entry-server.js'));
 
 // The English page is written back over dist/client/index.html, which is also
 // where the template comes from -- so the untouched template is kept aside,
@@ -77,11 +79,15 @@ async function write(locale, fileName, html) {
 }
 
 for (const locale of locales) {
-  const head = `${await headFor(locale)}
+  // undefined is the home page; every other entry is a category landing page.
+  for (const categoryId of [undefined, ...categoryPageIds]) {
+    const page = categoryId === undefined ? {} : categoryHead(locale, categoryId);
+    const head = `${await headFor(locale, page)}
 
-    <script type="application/ld+json">${structuredData(locale)}</script>`;
+    <script type="application/ld+json">${structuredData(locale, categoryId)}</script>`;
 
-  await write(locale, 'index.html', fill(template, locale, head, render(locale)));
+    await write(locale, `${page.slug ?? ''}index.html`, fill(template, locale, head, render(locale, categoryId)));
+  }
 
   // wrangler.jsonc serves the nearest 404.html with a 404 status, so anything
   // under /zh/ that does not exist gets the Chinese page.

@@ -189,19 +189,27 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
 }
 
+.explore-card-link {
+  border-radius: var(--animal-border-radius-lg);
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.explore-card-link:focus-visible {
+  outline: 3px solid var(--animal-warning-color);
+  outline-offset: 3px;
+}
+
 .explore-card {
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: var(--animal-spacing-sm);
+  height: 100%;
   min-height: 132px;
   padding: var(--animal-spacing-lg) var(--animal-spacing-md);
   text-align: center;
-}
-
-.explore-card:focus-visible {
-  outline: 3px solid var(--animal-warning-color);
-  outline-offset: 3px;
 }
 
 .explore-card-title {

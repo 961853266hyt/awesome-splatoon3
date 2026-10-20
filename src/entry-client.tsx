@@ -3,12 +3,13 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import 'animal-island-ui/style';
 import './styles.css';
 import { App } from './App';
-import { localeFromPathname } from './i18n/routing';
+import { pageFromPathname } from './i18n/routing';
 
 const container = document.getElementById('root') as HTMLElement;
+const { locale, categoryId } = pageFromPathname(window.location.pathname);
 const app = (
   <React.StrictMode>
-    <App locale={localeFromPathname(window.location.pathname)} />
+    <App locale={locale} categoryId={categoryId} />
   </React.StrictMode>
 );
 

@@ -38,6 +38,7 @@
 - [Splatoon3 - スプラトゥーン3 攻略＆検証 Wiki](https://wikiwiki.jp/splatoon3mix/) - 日文非官方 Wiki，提供斯普拉遁 3 攻略和机制验证资料。
 - [Splatoon Lore Ink.](https://splatoonlore.ink) - Splatoon 世界观、故事和角色资料档案，收录访谈、美术设定集和游戏内文本等翻译与整理。
 - [Sunken Scrolls](https://sunkenscrolls.ink) - Splatoon 资源归档与目录，整理攻略、站点、工具、素材和社区链接。
+- [Leanny's Splatoon 3 Database](https://leanny.github.io/splat3/database.html) - 基于解包数据的斯普拉遁 3 武器与装备数据库。
 
 ### 工具
 
@@ -54,6 +55,8 @@
 ### 开发
 
 - [YoungSx/splatoon-ui](https://github.com/YoungSx/splatoon-ui) - 基于 shadcn/ui 和 Radix 构建的 Splatoon 风格 React 组件库。
+- [frozenpandaman/s3s](https://github.com/frozenpandaman/s3s) - 命令行工具，从鱿鱼圈 3（SplatNet 3）获取对战数据并上传到 stat.ink。
+- [samuelthomas2774/nxapi](https://github.com/samuelthomas2774/nxapi) - 任天堂 Switch Online 应用的 API 客户端和桌面应用，可在电脑上查看鱿鱼圈 3（SplatNet 3）数据、好友上线通知和 Discord 状态。
 
 ### 素材
 
@@ -76,6 +79,7 @@
 - [memesquid](https://diudiu-wl.github.io/download-memesquid/) - 一个陪你看视频的可爱桌宠。
 - [Mollusk Voice Changer](https://itohyakkei.booth.pm/items/8308198) - 免费的实时章鱼和鱿鱼变声器。
 - [little squid pet](https://diudiu-wl.github.io/downloadsquid/) - 一个可爱桌宠，支持识别输赢、连接直播弹幕和对话等功能。
+- [Conch Bay](https://github.com/zhxie/conch-bay) - 跨平台（iOS / Android）的斯普拉遁 3 日程与战绩统计应用。
 
 ### 机器人
 

@@ -38,6 +38,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Splatoon3 - スプラトゥーン3 攻略＆検証 Wiki](https://wikiwiki.jp/splatoon3mix/) - Japanese unofficial wiki for Splatoon 3 strategy guides and mechanics verification.
 - [Splatoon Lore Ink.](https://splatoonlore.ink) - Archive of Splatoon world, story, and character lore with translations from interviews, artbooks, and in-game media.
 - [Sunken Scrolls](https://sunkenscrolls.ink) - Archive and directory for Splatoon resources, including guides, sites, tools, assets, and community links.
+- [Leanny's Splatoon 3 Database](https://leanny.github.io/splat3/database.html) - Datamined database of Splatoon 3 weapon and gear stats.
 
 ### Tools
 
@@ -54,6 +55,8 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 ### Development
 
 - [YoungSx/splatoon-ui](https://github.com/YoungSx/splatoon-ui) - Splatoon-inspired React component library built on shadcn/ui and Radix.
+- [frozenpandaman/s3s](https://github.com/frozenpandaman/s3s) - Command-line tool that takes battle data from SplatNet 3 and uploads it to stat.ink.
+- [samuelthomas2774/nxapi](https://github.com/samuelthomas2774/nxapi) - Nintendo Switch Online app API client and desktop app for SplatNet 3 data, friend notifications, and Discord presence.
 
 ### Assets
 
@@ -76,6 +79,7 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [memesquid](https://diudiu-wl.github.io/download-memesquid/) - A cute desktop pet that keeps you company while watching videos.
 - [Mollusk Voice Changer](https://itohyakkei.booth.pm/items/8308198) - Free real-time Inkling and Octoling voice changer.
 - [little squid pet](https://diudiu-wl.github.io/downloadsquid/) - A cute desktop pet with win/loss recognition, live chat integration, and conversation features.
+- [Conch Bay](https://github.com/zhxie/conch-bay) - Cross-platform iOS and Android app for Splatoon 3 schedules and battle statistics.
 
 ### Bots
 

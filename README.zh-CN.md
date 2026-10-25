@@ -53,6 +53,9 @@
 - [Splatoon VODs | 斯普拉遁录像库](https://splatoonvods.entre-el.top/) - 可按武器、地图等条件细粒度检索上位势对战视频的数据库。
 - [SplatLab](https://splat-lab.net) - 收录斯普拉遁 3 上位势对战高光视频片段的数据库，可按武器、场地、规则、投稿者、装备等条件筛选检索。
 - [stat.ink](https://stat.ink/) - Splatoon 各系列对战结果记录与统计平台。
+- [Nkitten's Splatoon 3 Randomizer](https://nkittensrl.github.io/splatoon3/random/) - 斯普拉遁 3 武器、场地和模式随机工具，支持随机分队、按武器类别筛选和分享设置。
+- [splatool.net Weapon Roulette](https://splatool.net/random) - 日文随机武器抽选工具，支持 1 到 10 人，可按武器类别、副武器、特殊武器和上线批次筛选，支持自定义列表和用 URL 分享结果。
+- [kyanu.net Weapon Roulette](https://kyanu.net/tool/splatoon/weapon-roulette) - 日文随机武器抽选工具，一次可抽 1 到 10 把，可按武器类别、副武器、特殊武器和赛季筛选，也能排除指定武器。
 
 ### 开发
 

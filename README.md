@@ -53,6 +53,9 @@ Splatoon 3 is owned by Nintendo. This is an unofficial community-maintained reso
 - [Splatoon VODs](https://splatoonvods.entre-el.top/) - Database for finding top Splatoon 3 player match videos with fine-grained filters such as weapons and maps.
 - [SplatLab](https://splat-lab.net) - Database of top Splatoon 3 player match highlight clips, searchable and filterable by weapon, stage, rule, uploader, and gear.
 - [stat.ink](https://stat.ink/) - Battle results tracking and statistics platform for Splatoon series games.
+- [Nkitten's Splatoon 3 Randomizer](https://nkittensrl.github.io/splatoon3/random/) - Weapon, stage, and mode randomizer with team assignment, weapon class filters, and shareable settings.
+- [splatool.net Weapon Roulette](https://splatool.net/random) - Japanese weapon randomizer for 1 to 10 players with class, sub, special, and release filters, custom lists, and shareable result URLs.
+- [kyanu.net Weapon Roulette](https://kyanu.net/tool/splatoon/weapon-roulette) - Japanese weapon randomizer that draws 1 to 10 weapons at once, with class, sub, special, and season filters and per-weapon exclusions.
 
 ### Development
 

@@ -3,7 +3,7 @@
   "messages": {
     "title": "Awesome Splatoon3",
     "metaTitle": "Awesome Splatoon 3 — Tools, Wikis & Community Resources",
-    "metaDescription": "A searchable directory of hand-picked Splatoon 3 resources: official links, wikis, gear and map planners, datamining assets, apps and bots.",
+    "metaDescription": "A searchable directory of hand-picked Splatoon 3 resources: official links, wikis, build and schedule tools, weapon randomizers, assets, apps and bots.",
     "switchLocale": "简体中文",
     "searchLabel": "Search resources",
     "searchPlaceholder": "Search resources…",
@@ -58,13 +58,13 @@
     "categoryPageIntro": "Community-picked Splatoon 3 resources in the {category} category.",
     "categoryPages": {
       "wiki": {
-        "title": "Splatoon 3 Wikis & Databases: Weapons, Gear and Lore",
-        "description": "Splatoon 3 wikis and databases: Inkipedia, a datamined weapon and gear database, Chinese and Japanese strategy wikis, a lore archive and a resource directory.",
-        "heading": "Splatoon 3 wikis and databases",
-        "intro": "Reference sites for weapons, gear, abilities, stages and modes, a datamined stats database, strategy wikis in Chinese and Japanese, and an archive of Splatoon lore.",
+        "title": "Splatoon Wiki Guide: Inkipedia & Splatoon 3 Databases",
+        "description": "Looking for a Splatoon wiki? Compare Inkipedia, a datamined Splatoon 3 weapon and gear database, Chinese and Japanese strategy wikis and a lore archive.",
+        "heading": "Splatoon wikis and Splatoon 3 databases",
+        "intro": "The Splatoon wikis and reference sites players use for weapons, gear, abilities, stages and modes, plus a datamined stats database, strategy wikis in Chinese and Japanese, and an archive of Splatoon lore.",
         "faq": [
           {
-            "question": "What is the best Splatoon 3 wiki?",
+            "question": "What is the best Splatoon wiki?",
             "answer": "Inkipedia covers mechanics, weapons, gear, stages, modes and updates in English. For exact weapon and gear numbers, Leanny's database is built from datamined game files."
           },
           {
@@ -74,10 +74,10 @@
         ]
       },
       "tools": {
-        "title": "Splatoon 3 Tools: Builds, Schedules & Battle Stats",
-        "description": "Splatoon 3 tools for gear builds, tournaments, battle and Salmon Run schedules, calendar feeds, battle stats, replay analysis and top-player VOD databases.",
+        "title": "Splatoon 3 Tools: Builds, Schedules, Stats & Randomizers",
+        "description": "Splatoon 3 tools for gear builds, tournaments, battle and Salmon Run schedules, battle stats, replay analysis, top-player VODs and weapon randomizers.",
         "heading": "Splatoon 3 tools",
-        "intro": "Websites the community uses to plan gear builds, check the current battle and Salmon Run schedules, track battle results, analyze replays and study top players' matches.",
+        "intro": "Websites the community uses to plan gear builds, check the current battle and Salmon Run schedules, track battle results, analyze replays, study top players' matches and pick random weapons.",
         "faq": [
           {
             "question": "Where can I find Splatoon 3 gear builds?",
@@ -90,6 +90,10 @@
           {
             "question": "How can I track my Splatoon 3 battle stats?",
             "answer": "stat.ink records and charts your battle results over time, and Inksight analyzes replays for match data and player stats."
+          },
+          {
+            "question": "How do I pick a random weapon in Splatoon 3?",
+            "answer": "Nkitten's Splatoon 3 Randomizer is an English tool that randomizes weapons, stages and modes and can split players into teams. splatool.net's weapon roulette assigns weapons to 1 to 10 players and shares the result as a URL, and kyanu.net's roulette draws 1 to 10 weapons and can leave out ones you don't own. Both roulettes are in Japanese."
           }
         ]
       },
@@ -175,6 +179,14 @@
       {
         "question": "How do I see my Splatoon 3 battle history on my phone?",
         "answer": "Nintendo's Nintendo Switch App (formerly the Nintendo Switch Online app) links up with Splatoon 3 through SplatNet 3, where you can look back at your battles and Salmon Run shifts. To keep and chart them long-term, see stat.ink under Tools and Conch Bay under Apps."
+      },
+      {
+        "question": "Is there a Splatoon 3 weapon randomizer?",
+        "answer": "Yes. Nkitten's Splatoon 3 Randomizer picks random weapons, stages and modes and can split players into teams, and splatool.net and kyanu.net offer Japanese weapon roulettes with filters for weapon class, sub and special. All three are listed under Tools.",
+        "link": {
+          "category": "tools",
+          "label": "Browse Splatoon 3 tools and randomizers"
+        }
       },
       {
         "question": "How can I suggest a resource?",

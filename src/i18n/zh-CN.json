@@ -3,7 +3,7 @@
   "messages": {
     "title": "Awesome Splatoon3",
     "metaTitle": "斯普拉遁 3（喷射战士 3）资源导航 — 工具、Wiki 与素材合集",
-    "metaDescription": "精选斯普拉遁 3（喷射战士 3 / Splatoon 3）资源导航：官方链接、Wiki 百科、装备与地图工具、素材资源、应用与机器人，一个搜索框全部找到。",
+    "metaDescription": "精选斯普拉遁 3（喷射战士 3 / Splatoon 3）资源导航：官方链接、Wiki 百科、配装与日程工具、随机武器抽选、素材资源、应用与机器人，一个搜索框全部找到。",
     "switchLocale": "English",
     "searchLabel": "搜索资源",
     "searchPlaceholder": "搜索资源…",
@@ -74,10 +74,10 @@
         ]
       },
       "tools": {
-        "title": "斯普拉遁 3 工具：配装网站、日程查询与战绩统计",
-        "description": "精选斯普拉遁 3（喷射战士 3）实用工具：sendou.ink 配装与比赛、对战和打工（鲑鱼跑）日程查询、日程日历订阅、stat.ink 战绩统计、对战录像分析和高手视频库。",
+        "title": "斯普拉遁 3 工具：配装、日程查询、战绩统计与随机武器",
+        "description": "精选斯普拉遁 3（喷射战士 3）实用工具：sendou.ink 配装与比赛、对战和打工（鲑鱼跑）日程查询、日历订阅、stat.ink 战绩统计、对战录像分析、高手视频库和随机武器抽选。",
         "heading": "斯普拉遁 3 工具",
-        "intro": "玩家常用的网站：查配装、看当前对战和打工日程、记录战绩、分析对战录像、找高手对战视频，一页看全。",
+        "intro": "玩家常用的网站：查配装、看当前对战和打工日程、记录战绩、分析对战录像、找高手对战视频、随机抽武器，一页看全。",
         "faq": [
           {
             "question": "斯普拉遁 3 配装网站有哪些？",
@@ -90,6 +90,10 @@
           {
             "question": "斯普拉遁 3 怎么查战绩？",
             "answer": "stat.ink 可以长期记录战绩并生成统计；Inksight 可以分析对战回放，查看比赛数据和玩家统计。想从鱿鱼圈 3 导出数据，可以看开发资源里的 s3s。"
+          },
+          {
+            "question": "斯普拉遁 3 怎么随机抽武器？",
+            "answer": "Nkitten 的 Splatoon 3 Randomizer 是英文工具，可以随机武器、场地和模式，还能随机分队。splatool.net 的武器轮盘可以给 1 到 10 人分配武器，并用 URL 分享结果；kyanu.net 的轮盘一次能抽 1 到 10 把，还能排除自己没有的武器。这两个轮盘都是日文界面。"
           }
         ]
       },
@@ -175,6 +179,14 @@
       {
         "question": "手机上怎么看斯普拉遁 3 的战绩？",
         "answer": "任天堂官方的 Nintendo Switch App（原 Nintendo Switch Online 应用）提供斯普拉遁 3 的游戏连动服务“鱿鱼圈 3”（SplatNet 3），可以查看对战和打工记录。想长期保存和统计战绩，可以看工具分类里的 stat.ink 和应用分类里的 Conch Bay。"
+      },
+      {
+        "question": "有斯普拉遁 3 随机武器（武器轮盘）工具吗？",
+        "answer": "有。Nkitten 的 Splatoon 3 Randomizer 可以随机武器、场地和模式，还能随机分队；splatool.net 和 kyanu.net 提供日文武器轮盘，可以按武器类别、副武器和特殊武器筛选。三个工具都收录在工具分类里。",
+        "link": {
+          "category": "tools",
+          "label": "查看斯普拉遁 3 工具与随机武器"
+        }
       },
       {
         "question": "怎么推荐新资源？",

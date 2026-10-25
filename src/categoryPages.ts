@@ -16,7 +16,14 @@ export interface CategoryPageCopy {
   /** Lead paragraph under the heading. */
   intro: string;
   /** Questions people search for, answered from the resources on the page. */
-  faq: readonly { question: string; answer: string }[];
+  faq: readonly FaqItem[];
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+  /** Optional link under the answer to the category page that lists those resources. */
+  link?: { category: string; label: string };
 }
 
 export function categoryPageCopy(locale: Locale, category: Category): CategoryPageCopy {

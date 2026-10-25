@@ -56,6 +56,11 @@ export function Faq({ locale, items }: FaqProps) {
           <div className="category-faq-item" key={item.question}>
             <h3>{item.question}</h3>
             <p>{item.answer}</p>
+            {item.link && (
+              <p>
+                <a href={categoryPath(locale, item.link.category)}>{item.link.label}</a>
+              </p>
+            )}
           </div>
         ))}
       </Card>
